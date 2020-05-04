@@ -1,0 +1,8 @@
+aiohttp
+aiosnmp
+sqlalchemy
+psycopg2-binary
+redis
+netdev
+pandas
+xlrd
