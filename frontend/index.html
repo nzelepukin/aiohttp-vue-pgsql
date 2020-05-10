@@ -22,6 +22,18 @@
               <b-nav-item-dropdown
               text="Service"
               >
+              <b-dropdown-item v-b-toggle.sidebar-1>
+                Добавить устройство 
+              </b-dropdown-item>
+              <b-dropdown-item v-b-toggle.sidebar-2 v-on:click ="GetSelectedDevice()">
+                Редактировать устройство
+              </b-dropdown-item>
+              <b-dropdown-item v-on:click ="DeleteDevice()">
+                Удалить устройство
+              </b-dropdown-item>  
+              <b-dropdown-item v-on:click ="snmpinfo()">
+                Опросить
+              </b-dropdown-item>
               <b-dropdown-item v-b-modal.modal-1>Импорт из XLS
                 <b-modal id="modal-1" title="EXCEL Import">
                   <p class="my-4">
@@ -30,9 +42,20 @@
                       <label class="custom-file-label" for="inputGroupFile01">{{file.name}}</label>
                     </div>
                   </p>
+                  {{ importState }}
                 </b-modal>
               </b-dropdown-item>
-              <b-dropdown-item v-on:click ="snmpinfo()">Опросить</b-dropdown-item>
+              <b-dropdown-item v-b-modal.modal-2>Редатктор таблицы
+                <b-modal id="modal-2" title="Редатктор таблицы">
+                  <p class="my-4">
+                    <template v-for="field in all_fields">
+                      <input type="checkbox" :id="'check-'+field.key" :value="field" v-model="switches_fields">
+                      <label :for="field.key">{{field.label}}</label>
+                    </template>
+                  </p>
+                </b-modal>
+              </b-dropdown-item>
+            
             </b-nav-item-dropdown>
           </b-navbar-nav>      
             <!-- Right aligned nav items -->
@@ -45,7 +68,108 @@
         </b-navbar>
       </div>
       <div>
-        <b-table striped outlined small hover :head-variant="headVariant" :items="switches" :fields="switches_fields" :filter="search"></b-table>
+        <b-sidebar id="sidebar-1" title="Добавить устройство" right shadow>
+          <div class="px-3 py-2">
+            <p>
+            <template v-for="field in all_fields">
+              <template v-if="field.type === 'select'">
+                <b-input-group :prepend="field.label" class="mt-3">
+                  <b-form-input :list="'new-'+field.key+'-list'" :id="'new-'+field.key" ></b-form-input>
+                </b-input-group>
+                <datalist :id="'new-'+field.key+'-list'">
+                  <option v-for="option in devOptions(field.key)">{{ option }}</option>
+                </datalist>
+              </template>
+              <template v-else-if="field.type === 'service'">
+              </template>
+              <template v-else>
+                <b-input-group :prepend="field.label" class="mt-3">
+                  <b-form-input :id="'new-'+field.key" :type="field.type"></b-form-input>
+                </b-input-group>
+              </template>
+            </template>
+            </p>  
+            <p>
+              <b-button size="sm" @click="AddDevice()">Добавить</b-button>
+            </p>
+          </div>
+        </b-sidebar>
+        <b-sidebar id="sidebar-2" title="Редактировать устройство" right shadow>
+          <div class="px-3 py-2">
+            <p>
+            <template v-for="field in all_fields">
+              <template v-if="field.type === 'select'">
+                <b-input-group :prepend="field.label" class="mt-3">
+                  <b-form-input :list="'edit-'+field.key+'-list'" :id="'edit-'+field.key" :value="field.default_value"></b-form-input>
+                  <input type="checkbox" :id="'check-edit-'+field.key" :value="field.key" v-model="editParameters">
+                </b-input-group>
+                <datalist :id="'edit-'+field.key+'-list'">
+                  <option v-for="option in devOptions(field.key)">{{ option }}</option>
+                </datalist>
+              </template>
+              <template v-else-if="field.type === 'service'">
+              </template>
+              <template v-else>
+                <b-input-group :prepend="field.label" class="mt-3">
+                  <b-form-input :id="'edit-'+field.key" :type="field.type" :value="field.default_value" ></b-form-input>
+                  <input type="checkbox" :id="'check-edit-'+field.key" :value="field.key" v-model="editParameters">
+                </b-input-group>
+              </template>
+            </template>
+            </p>  
+            <p>
+              <b-button size="sm" @click="EditDevice()">Редактировать</b-button>
+            </p>
+          </div>
+        </b-sidebar>
+        <b-table striped outlined small hover
+        selectable
+        ref="selectableTable"
+        :select-mode="selectMode" 
+        :head-variant="headVariant" 
+        :current-page="currentPage"
+        :per-page="perPage"
+        :items="switches" 
+        :fields="switches_fields"
+        default-sort="switches.place" 
+        :filter="search"
+        @filtered="onFiltered"
+        @row-selected="onRowSelected">
+          <template v-slot:cell(index)="data">
+            {{ (data.index + 1) + (currentPage-1)*perPage}}
+          </template>
+          <template v-slot:cell(ip)="base">
+            <a :href="base.item.protocol+'://'+base.item.ip">{{base.item.ip}}</a>
+          </template>
+          <template v-slot:cell(selected)="{ rowSelected }">
+            <template v-if="rowSelected">
+              <span aria-hidden="true">&check;</span>
+              <span class="sr-only">Selected</span>
+            </template>
+            <template v-else>
+              <span aria-hidden="true">&nbsp;</span>
+              <span class="sr-only">Not selected</span>
+            </template>
+          </template>
+        </b-table>
+        <p>
+          <b-pagination
+          v-model="currentPage"
+          pills
+          :total-rows="totalRows"
+          :per-page="perPage"
+          limit=10
+          align="center"
+          size="md"
+          class="my-0"
+          first-number
+          last-number
+        ></b-pagination>
+          </p>
+        <p>
+          <b-button size="sm" @click="selectAllRows">Select all</b-button>
+          <b-button size="sm" @click="clearSelected">Clear selected</b-button>
+        </p>
       </div>
     </div>
   </body>
