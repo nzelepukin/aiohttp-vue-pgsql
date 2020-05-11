@@ -1,0 +1,2416 @@
+-----
+name: Рюкзак для девушек Countess V
+old_price: 8490
+sale: 20
+price: 6792
+description: Удобная, строгая, при этом очень современная и стильная модель женского рюкзака. 
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/ryukzak-dlya-devushek-countess-v/
+-----
+name: Фирменная корочка на паспорт KREPKO
+old_price: 990
+sale: 20
+price: 792
+description: Базовая корочка на паспорт, выполнена из цельного куска кожи цельнокроеным методом. В стоимость входит тиснение на корочке золотым или серебряным шрифтом. Можно оттеснить ФИО или другую креативную надпись.
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/firmennaya-korochka-na-pasport-krepko/
+-----
+name: Фирменный подарочный набор KREPKO
+old_price: 1990
+sale: 0
+price: 1990
+description: Фирменный подарочный набор состоящий из корочки на паспорт, брелока на ключи или рюкзак, бирки на чемодан. На всех изделиях производится тиснение золотым или серебряным шрифтом ФИО или другой креативной надписи. В комплекте бирки на чемодан входит картонный вкладыш, на котором владелец указывает свои данный (ФИО, контактный телефон, e-mail)
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/firmennyy-podarochnyy-nabor-krepko/
+-----
+name: Сумочка-Клатч AKHMATOVA.
+old_price: 5390
+sale: 0
+price: 5390
+description: Сумочка-Клатч AKHMATOVA.
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/sumochka-klatch-akhmatova/
+-----
+name: Клатч BUK
+old_price: 2590
+sale: 0
+price: 2590
+description: Клатч BUK
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/klatch-buk/
+-----
+name: Сумочка - клатч FiNE
+old_price: 5790
+sale: 0
+price: 5790
+description: Сумочка - клатч FiNE
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/sumochka---klatch-fine/
+-----
+name: Сумочка-подружка Dina
+old_price: 8790
+sale: 0
+price: 8790
+description: Сумочка-подружка Dina
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/sumochka-podruzhka-dina/
+-----
+name: Шоппер Sovitskay
+old_price: 10990
+sale: 0
+price: 10990
+description: Шоппер Sovitskay
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/shopper-sovitskay/
+-----
+name: Шоппер Tereshkova
+old_price: 9590
+sale: 0
+price: 9590
+description: Шоппер Tereshkova
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/shopper-tereshkova/
+-----
+name: Сумочка на пояс ANDREEVA
+old_price: 2790
+sale: 0
+price: 2790
+description: Сумочка на пояс ANDREEVA
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/klatch-na-tsepochke-pereimenovat/
+-----
+name: Портмоне GORCHAKOVA
+old_price: 4090
+sale: 0
+price: 4090
+description: красный
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/portmone-gorchakova/
+-----
+name: Женское портмоне TEFFI
+old_price: 6990
+sale: 0
+price: 6990
+description: Женское портмоне TEFFI
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/zhenskoe-portmone-teffi/
+-----
+name: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+old_price: 2990
+sale: 20
+price: 2392
+description: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/kholdyer-dlya-dokumyentov-lermontov/
+-----
+name: ПОРТМОНЕ CHEHOV
+old_price: 5190
+sale: 0
+price: 5190
+description: ПОРТМОНЕ CHEHOV
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/portmonye-chehov/
+-----
+name: Портмоне MAYAKOVSKIY
+old_price: 5190
+sale: 0
+price: 5190
+description: Портмоне MAYAKOVSKIY
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/portmone-mayakovskiy/
+-----
+name: Органайзер на кольцах (ежедневник)
+old_price: 5990
+sale: 0
+price: 5990
+description: Органайзер на кольцах (ежедневник)
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/organayzer-na-koltsakh-ezhednevnik/
+-----
+name:  КОРОЧКА НА ПАСПОРТ KREPKO
+old_price: 1590
+sale: 20
+price: 1272
+description: Базовая корочка для паспорта защитит ваш документ от повреждений. Только стиль, ни чего лишнего!
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/-korochka-na-pasport-krepko/
+-----
+name: Несессер MUN
+old_price: 2990
+sale: 30
+price: 2093
+description: Несессер из натуральной кожи. Незаменимый аксессуар в путешествии, деловой поездке или походе. С его помощью предметы первой необходимости и личной гигиены всегда по рукой.
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/nesesser-mun/
+-----
+name: Бандольер. Чехол для Iphone XS max, XS, X, XR, 8, 8Plus, 7, 7PLUS
+old_price: 2990
+sale: 20
+price: 2392
+description: Идеальный аксессуар для голивудской премьеру, повседневной суеты или музыкального фестиваля. 
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/bandoler-chekhol-dlya-iphone-xs-max-xs-x-xr-8-8plus-7-7plus/
+-----
+name: ПОРТУПЕЯ №7
+old_price: 4490
+sale: 0
+price: 4490
+description: ПОРТУПЕЯ №7
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/portupyeya-7/
+-----
+name: БРАСЛЕТ KREPKO
+old_price: 790
+sale: 0
+price: 790
+description: кора сосны
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/braslyet-krepko/
+-----
+name: Парные кожаные браслеты Twix
+old_price: 1490
+sale: 0
+price: 1490
+description: Парные кожаные браслеты Twix
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/parnye-kozhanye-braslety-twix/
+-----
+name: Набор "Дамский угодник"
+old_price: 6780
+sale: 0
+price: 6780
+description: Набор "Дамский угодник"
+category: ХИТЫ у женщин
+url: https://krepkoshop.com/category/nabor-damskiy-ugodnik/
+-----
+name: Портмоне для автодокументов TUTCHEV
+old_price: 3390
+sale: 0
+price: 3390
+description: Портмоне для автодокументов TUTCHEV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portmone-dlya-avtodokumentov-tutchev/
+-----
+name: Дорожная сумка Atlasov
+old_price: 14990
+sale: 20
+price: 11992
+description: Вместительная дорожная сумка, выполненная в классическом стиле. Отличительной чертой сумки являются отделения на молнии по бокам, в которых поместятся важные мелочи в Вашем путешествии. За счёт своей округлой формы сумка очень удобна и вместительна.
+
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/dorozhnaya-sumka-atlasov/
+-----
+name: Фирменная корочка на паспорт KREPKO
+old_price: 990
+sale: 20
+price: 792
+description: Базовая корочка на паспорт, выполнена из цельного куска кожи цельнокроеным методом. В стоимость входит тиснение на корочке золотым или серебряным шрифтом. Можно оттеснить ФИО или другую креативную надпись.
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/firmennaya-korochka-na-pasport-krepko/
+-----
+name: Деловая сумка NIKITIN
+old_price: 10990
+sale: 0
+price: 10990
+description: Стильная, вместительная, качественная сумка для настоящего современного Денди. Данная модель не похожа ни на одну современную сумку, что однозначно выделит ее владельца из толпы. Дно сумки усилено для увеличения нагрузки, установлены специальные галантерейные подножки. Нагрузка на ручки распределена за счет специальных усиливающих лент. Внутри отделение для мелочи на молнии, по желанию могут быть добавлено отделение для ноутбука (ленты для крепления) или другие дополнительные отделения. Помещается ноутбук до 15.4 дюймов. В комплекте регулируемый ремень через плечо
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/delovaya-sumka-nikitin/
+-----
+name: Саквояж KREPKO
+old_price: 34990
+sale: 20
+price: 27992
+description: Высококачественная кожа, фурнитура и правильный крой. Ничего лишнего, только качество и шик. Данная классическая модель саквояжа идеально подойдут для ручной клади самолета или будет вашим верным спутников в качестве деловой повседневной сумки.
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sakvoyazh-krepko/
+-----
+name: Портмоне ALEKSEEV
+old_price: 5190
+sale: 0
+price: 5190
+description: Портмоне ALEKSEEV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portmone-alekseev/
+-----
+name: БУМАЖНИК BULGAKOV
+old_price: 4090
+sale: 0
+price: 4090
+description: БУМАЖНИК BULGAKOV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/bumazhnik-bulgakov/
+-----
+name: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+old_price: 2990
+sale: 20
+price: 2392
+description: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/kholdyer-dlya-dokumyentov-lermontov/
+-----
+name: Портмоне DERZHAVIN
+old_price: 5490
+sale: 0
+price: 5490
+description: Портмоне DERZHAVIN
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portmone-derzhavin/
+-----
+name: ПОРТМОНЕ CHEHOV
+old_price: 5190
+sale: 0
+price: 5190
+description: ПОРТМОНЕ CHEHOV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portmonye-chehov/
+-----
+name: Портмоне BORATYNSKIY
+old_price: 6890
+sale: 0
+price: 6890
+description: Портмоне BORATYNSKIY
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portmone-boratynskiy/
+-----
+name: Портмоне MANDELSHTAM №2
+old_price: 7390
+sale: 0
+price: 7390
+description: Портмоне MANDELSHTAM №2
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/mandelshtam-2/
+-----
+name: ЗАЖИМ ДЛЯ КУПЮР KREPKO
+old_price: 1690
+sale: 0
+price: 1690
+description: черный
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/zazhim-dlya-kupyur-krepko/
+-----
+name:  КОРОЧКА НА ПАСПОРТ KREPKO
+old_price: 1590
+sale: 20
+price: 1272
+description: Базовая корочка для паспорта защитит ваш документ от повреждений. Только стиль, ни чего лишнего!
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/-korochka-na-pasport-krepko/
+-----
+name: Органайзер на козырек авто KREPKO (малый)  
+old_price: 2190
+sale: 0
+price: 2190
+description: Невероятно практичная, удобная и эстетичная вещь. 
+- 3 кармашка под карточки или записки/билеты, 
+- петля для ручки/стилуса, 
+- крепление для очков.
+- универсальное крепление крепление подходит для любого козырька
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/organayzer-na-kozyrek-avto-krepko-malyy-/
+-----
+name: Органайзер на козырек авто KREPKO (большой)
+old_price: 2990
+sale: 0
+price: 2990
+description: Невероятно практичная, удобная и эстетичная вещь. 
+- 6 кармашков под карточки или записки/билеты, 
+- петля для ручки/стилуса, 
+- крепление для очков.
+- универсальное крепление крепление подходит для любого козырька
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/organayzer-na-kozyrek-avto-krepko-bolshoy/
+-----
+name: Сумка наплечная KREPKO
+old_price: 7990
+sale: 0
+price: 7990
+description: Сумка наплечная KREPKO
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sumka-naplechnaya-krepko/
+-----
+name: Портфель Bernstaun
+old_price: 15590
+sale: 0
+price: 15590
+description: Один основной вместительный отдел с перегородкой/разделителем по центру. Карман на задней стенке с внешней стороны портфеля на потайной молнии, вмещает документы формата А4.
+
+
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/portfel-bernstaun/
+-----
+name: Дорожная сумка Beketov
+old_price: 13990
+sale: 20
+price: 11192
+description: Великолепная дорожная сумка созданная с умом. 
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/dorozhnaya-sumka-beketov/
+-----
+name: Дорожная сумка BOUR
+old_price: 11990
+sale: 20
+price: 9592
+description: Дорожная сумка BOUR
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/dorozhnaya-sumka-bour/
+-----
+name: Сумка путешественника DEZHNEV
+old_price: 13990
+sale: 20
+price: 11192
+description: Сумка путешественника DEZHNEV
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sumka-puteshestvennika-dezhnev/
+-----
+name: FONVIZIN
+old_price: 17690
+sale: 0
+price: 17690
+description: FONVIZIN
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/fonvizin/
+-----
+name: Городской рюкзак Donskoy
+old_price: 13990
+sale: 0
+price: 13990
+description: Стильный рюкзак, который мы создали по запросам наших клиентов.
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/gorodskoy-ryukzak-donskoy/
+-----
+name: Деловой рюкзак Bagration
+old_price: 15990
+sale: 20
+price: 12792
+description: Деловой рюкзак Bagration
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/delovoy-ryukzak-bagration/
+-----
+name: Сумка GROZNY
+old_price: 6290
+sale: 20
+price: 5032
+description: Сумка GROZNY
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sumka-grozny/
+-----
+name: Сумка-папка KREPKO
+old_price: 7990
+sale: 20
+price: 6392
+description: Сумка-папка KREPKO
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sumka-papka-krepko/
+-----
+name: Фирменный подарочный набор KREPKO
+old_price: 1990
+sale: 0
+price: 1990
+description: Фирменный подарочный набор состоящий из корочки на паспорт, брелока на ключи или рюкзак, бирки на чемодан. На всех изделиях производится тиснение золотым или серебряным шрифтом ФИО или другой креативной надписи. В комплекте бирки на чемодан входит картонный вкладыш, на котором владелец указывает свои данный (ФИО, контактный телефон, e-mail)
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/firmennyy-podarochnyy-nabor-krepko/
+-----
+name: Сумка BASMAN
+old_price: 10990
+sale: 0
+price: 10990
+description: ​Сумка для повседневного использования деловым человеком в современном мегаполисе.
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/sumka-basman/
+-----
+name: Мужской клатч Suvorov
+old_price: 9190
+sale: 0
+price: 9190
+description: Мужской клатч Suvorov
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/muzhskoy-klatch-suvorov/
+-----
+name: Рабочая папка А5 TUMANSKIY
+old_price: 9190
+sale: 30
+price: 6433
+description: черный
+category: ХИТЫ у мужчин
+url: https://krepkoshop.com/category/rabochaya-papka-a5-tumanskiy/
+-----
+name: Мужской клатч Suvorov
+old_price: 9190
+sale: 0
+price: 9190
+description: Мужской клатч Suvorov
+category: Кошельки
+url: https://krepkoshop.com/category/muzhskoy-klatch-suvorov/
+-----
+name: Портмоне ALEKSEEV
+old_price: 5190
+sale: 0
+price: 5190
+description: Портмоне ALEKSEEV
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-alekseev/
+-----
+name: БУМАЖНИК BULGAKOV
+old_price: 4090
+sale: 0
+price: 4090
+description: БУМАЖНИК BULGAKOV
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-bulgakov/
+-----
+name: Бумажник ERMAK
+old_price: 2990
+sale: 0
+price: 2990
+description: Бумажник ERMAK
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-ermak/
+-----
+name: Портмоне MANDELSHTAM №2
+old_price: 7390
+sale: 0
+price: 7390
+description: Портмоне MANDELSHTAM №2
+category: Кошельки
+url: https://krepkoshop.com/category/mandelshtam-2/
+-----
+name: ПОРТМОНЕ CHEHOV
+old_price: 5190
+sale: 0
+price: 5190
+description: ПОРТМОНЕ CHEHOV
+category: Кошельки
+url: https://krepkoshop.com/category/portmonye-chehov/
+-----
+name: Портмоне DERZHAVIN
+old_price: 5490
+sale: 0
+price: 5490
+description: Портмоне DERZHAVIN
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-derzhavin/
+-----
+name: Женское портмоне TEFFI
+old_price: 6990
+sale: 0
+price: 6990
+description: Женское портмоне TEFFI
+category: Кошельки
+url: https://krepkoshop.com/category/zhenskoe-portmone-teffi/
+-----
+name: Портмоне BORATYNSKIY
+old_price: 6890
+sale: 0
+price: 6890
+description: Портмоне BORATYNSKIY
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-boratynskiy/
+-----
+name: Бумажник NAKHIMOV
+old_price: 4490
+sale: 0
+price: 4490
+description: Бумажник NAKHIMOV
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-nakhimov/
+-----
+name: Бумажник TUKHACHEVSKIY
+old_price: 2390
+sale: 0
+price: 2390
+description: Бумажник TUKHACHEVSKIY
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-tukhachevskiy/
+-----
+name: Портмоне MAYAKOVSKIY
+old_price: 5190
+sale: 0
+price: 5190
+description: Портмоне MAYAKOVSKIY
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-mayakovskiy/
+-----
+name: Портмоне FET
+old_price: 6490
+sale: 0
+price: 6490
+description: Портмоне FET
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-fet/
+-----
+name: Портмоне GNEDICH
+old_price: 6890
+sale: 0
+price: 6890
+description: Портмоне GNEDICH
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-gnedich/
+-----
+name: Купюрник Raevskiy
+old_price: 3190
+sale: 0
+price: 3190
+description: Купюрник Raevskiy
+category: Кошельки
+url: https://krepkoshop.com/category/kupyurnik-raevskiy/
+-----
+name: БУМАЖНИК TURGENEV
+old_price: 1590
+sale: 0
+price: 1590
+description: БУМАЖНИК TURGENEV
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-turgenev/
+-----
+name: Бумажник KOLCHAK
+old_price: 2990
+sale: 0
+price: 2990
+description: Бумажник KOLCHAK
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-kolchak/
+-----
+name: Чехол-бумажник BLOK
+old_price: 2990
+sale: 20
+price: 2392
+description: Чехол-бумажник BLOK
+category: Кошельки
+url: https://krepkoshop.com/category/chekhol-bumazhnik-dlya-telefona-blok/
+-----
+name: Портмоне GORCHAKOVA
+old_price: 4090
+sale: 0
+price: 4090
+description: красный
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-gorchakova/
+-----
+name: Бумажник Galitskiy
+old_price: 2490
+sale: 0
+price: 2490
+description: Бумажник Galitskiy
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-galitskiy/
+-----
+name: Портмоне MANDELSHTAM №1
+old_price: 6990
+sale: 0
+price: 6990
+description: черный
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-mandelshtam/
+-----
+name: Женский портмоне-клатч GONCHAROVA
+old_price: 4990
+sale: 0
+price: 4990
+description: Женский портмоне-клатч GONCHAROVA
+category: Кошельки
+url: https://krepkoshop.com/category/zhenskiy-portmone-klatch-goncharova/
+-----
+name: КУПЮРНИК NEKRASOV
+old_price: 2990
+sale: 0
+price: 2990
+description: КУПЮРНИК NEKRASOV
+category: Кошельки
+url: https://krepkoshop.com/category/kupyurnik-nekrasov/
+-----
+name: Мини - бумажник DOVLATOV
+old_price: 1890
+sale: 0
+price: 1890
+description: Мини - бумажник DOVLATOV
+category: Кошельки
+url: https://krepkoshop.com/category/mini---bumazhnik-dovlatov/
+-----
+name: Женский холдер Aspaziya
+old_price: 5090
+sale: 0
+price: 5090
+description: Женский холдер Aspaziya
+category: Кошельки
+url: https://krepkoshop.com/category/zhenskiy-kholder-aspaziya/
+-----
+name: Деловой тревел на молнии Harms
+old_price: 8890
+sale: 30
+price: 6223
+description: Деловой тревел на молнии Harms содержит в себе 11 отделов под пластиковые карты, 1 отдел под паспорт или
+билеты, отдел под купюры (вместительность 30-50 купюр), отдел на молнии под
+монеты.
+category: Кошельки
+url: https://krepkoshop.com/category/delovoy-trevel-na-molnii-harms/
+-----
+name: Набор "Дамский угодник"
+old_price: 6780
+sale: 0
+price: 6780
+description: Набор "Дамский угодник"
+category: Кошельки
+url: https://krepkoshop.com/category/nabor-damskiy-ugodnik/
+-----
+name: Портмоне BRUS
+old_price: 3990
+sale: 0
+price: 3990
+description: Портмоне BRUS
+category: Кошельки
+url: https://krepkoshop.com/category/portmone-brus/
+-----
+name: Бумажник-чехол для телефона AKSAKOV
+old_price: 2990
+sale: 20
+price: 2392
+description: Бумажник-чехол для телефона AKSAKOV
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-chekhol-dlya-telefona-aksakov/
+-----
+name: Бумажник "Мой первый кошелек"
+old_price: 1490
+sale: 0
+price: 1490
+description: Удобный и компактный бумажник на молнии. Идеальный вариант для ребенка. Мелочь и купюры: всё в одном кармане.
+category: Кошельки
+url: https://krepkoshop.com/category/bumazhnik-moy-pervyy-koshelek/
+-----
+name: Мужской клатч Suvorov
+old_price: 9190
+sale: 0
+price: 9190
+description: Мужской клатч Suvorov
+category: Мужские сумки
+url: https://krepkoshop.com/category/muzhskoy-klatch-suvorov/
+-----
+name: Сумка путешественника DEZHNEV
+old_price: 13990
+sale: 20
+price: 11192
+description: Сумка путешественника DEZHNEV
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-puteshestvennika-dezhnev/
+-----
+name: Сумка наплечная KREPKO
+old_price: 7990
+sale: 0
+price: 7990
+description: Сумка наплечная KREPKO
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-naplechnaya-krepko/
+-----
+name: FONVIZIN
+old_price: 17690
+sale: 0
+price: 17690
+description: FONVIZIN
+category: Мужские сумки
+url: https://krepkoshop.com/category/fonvizin/
+-----
+name: Сумка SHEIN
+old_price: 12590
+sale: 20
+price: 10072
+description: Сумка SHEIN
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-shein/
+-----
+name: Дорожная сумка BOUR
+old_price: 11990
+sale: 20
+price: 9592
+description: Дорожная сумка BOUR
+category: Мужские сумки
+url: https://krepkoshop.com/category/dorozhnaya-sumka-bour/
+-----
+name: Рюкзак Nevskiy
+old_price: 15990
+sale: 20
+price: 12792
+description: Кожаный рюкзак, который мы создали совместно с нашими любимыми клиентами. 
+category: Мужские сумки
+url: https://krepkoshop.com/category/355/
+-----
+name: Деловой рюкзак Bagration
+old_price: 15990
+sale: 20
+price: 12792
+description: Деловой рюкзак Bagration
+category: Мужские сумки
+url: https://krepkoshop.com/category/delovoy-ryukzak-bagration/
+-----
+name: Деловой портфель Engelhardt
+old_price: 29990
+sale: 0
+price: 29990
+description: Деловой портфель Engelhardt
+category: Мужские сумки
+url: https://krepkoshop.com/category/delovoy-portfel-engelhardt/
+-----
+name: Дорожная сумка Beketov
+old_price: 13990
+sale: 20
+price: 11192
+description: Великолепная дорожная сумка созданная с умом. 
+category: Мужские сумки
+url: https://krepkoshop.com/category/dorozhnaya-sumka-beketov/
+-----
+name: Сумка BASMAN
+old_price: 10990
+sale: 0
+price: 10990
+description: ​Сумка для повседневного использования деловым человеком в современном мегаполисе.
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-basman/
+-----
+name: Наплечная сумка KRYLOV
+old_price: 10290
+sale: 0
+price: 10290
+description: Наплечная сумка KRYLOV
+category: Мужские сумки
+url: https://krepkoshop.com/category/naplechnaya-sumka-krylov/
+-----
+name: Сумка- кобура KREPKO
+old_price: 8900
+sale: 20
+price: 7120
+description: Сумка- кобура KREPKO
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka--kobura-krepko/
+-----
+name: Городской рюкзак Donskoy
+old_price: 13990
+sale: 0
+price: 13990
+description: Стильный рюкзак, который мы создали по запросам наших клиентов.
+category: Мужские сумки
+url: https://krepkoshop.com/category/gorodskoy-ryukzak-donskoy/
+-----
+name: Сумка-папка KREPKO
+old_price: 7990
+sale: 20
+price: 6392
+description: Сумка-папка KREPKO
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-papka-krepko/
+-----
+name: Сумка-портфель ZHUKOV
+old_price: 15990
+sale: 0
+price: 15990
+description: Сумка-портфель ZHUKOV
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-portfel-zhukov/
+-----
+name: Сумка GROZNY
+old_price: 6290
+sale: 20
+price: 5032
+description: Сумка GROZNY
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-grozny/
+-----
+name: Дорожная сумка Atlasov
+old_price: 14990
+sale: 20
+price: 11992
+description: Вместительная дорожная сумка, выполненная в классическом стиле. Отличительной чертой сумки являются отделения на молнии по бокам, в которых поместятся важные мелочи в Вашем путешествии. За счёт своей округлой формы сумка очень удобна и вместительна.
+
+category: Мужские сумки
+url: https://krepkoshop.com/category/dorozhnaya-sumka-atlasov/
+-----
+name: Портфель AKINFEEV
+old_price: 11990
+sale: 0
+price: 11990
+description: Портфель AKINFEEV
+category: Мужские сумки
+url: https://krepkoshop.com/category/portfel-akinfeev/
+-----
+name: Поясная сумка Miller
+old_price: 3690
+sale: 20
+price: 2952
+description: Поясные сумки- это удобные приспособления для самых необходимых мелочей. В них прекрасно помещаются паспорт, мобильный телефон или фотокамера. Сумка незаменима в путешествиях или во время занятий спортом. Она легкая, но вместительная, с регулируемым поясным ремнем. В ней один общий отдел на молнии с эргономичным дизайном. С сумкой на пояс Miller все ваши вещи будут в безопасности и всегда под рукой. ​
+category: Мужские сумки
+url: https://krepkoshop.com/category/poyasnaya-sumka-miller/
+-----
+name: Деловая сумка NIKITIN
+old_price: 10990
+sale: 0
+price: 10990
+description: Стильная, вместительная, качественная сумка для настоящего современного Денди. Данная модель не похожа ни на одну современную сумку, что однозначно выделит ее владельца из толпы. Дно сумки усилено для увеличения нагрузки, установлены специальные галантерейные подножки. Нагрузка на ручки распределена за счет специальных усиливающих лент. Внутри отделение для мелочи на молнии, по желанию могут быть добавлено отделение для ноутбука (ленты для крепления) или другие дополнительные отделения. Помещается ноутбук до 15.4 дюймов. В комплекте регулируемый ремень через плечо
+category: Мужские сумки
+url: https://krepkoshop.com/category/delovaya-sumka-nikitin/
+-----
+name: Дорожная сумка Manhattan
+old_price: 12490
+sale: 20
+price: 9992
+description: Шикарная дорожная сумка Manhattan. Необычный дизайн с треугольными боковинами, актуальный тренд подчеркивающий вашу индивидуальность. Удобна и легка в эксплуатации, притягивает взгляды окружающих.
+category: Мужские сумки
+url: https://krepkoshop.com/category/dorozhnaya-sumka-manhattan/
+-----
+name: Городской рюкзак Rokosovskiy
+old_price: 8990
+sale: 0
+price: 8990
+description: Один основной отдел, внутренний карман, лицевой карман.
+
+Размер: 40*25*7 см.
+
+— Материал: натуральная кожа растительного дубления
+— Технология изготовления: ручная работа
+— Доступные цвета кожи: черный, темно-коричневый, светло-коричневый, темно-синий, болотно-зеленый, бордово-красный.Цвет нити на выбор заказчика (доступно более 15 цветов).
+category: Мужские сумки
+url: https://krepkoshop.com/category/rokosovskiy/
+-----
+name: Деловая сумка DАVYDOV
+old_price: 18290
+sale: 0
+price: 18290
+description: Деловая сумка DАVYDOV
+category: Мужские сумки
+url: https://krepkoshop.com/category/delovaya-sumka-davydov/
+-----
+name: Портфель BALMONT
+old_price: 13790
+sale: 0
+price: 13790
+description: Портфель BALMONT
+category: Мужские сумки
+url: https://krepkoshop.com/category/portfel-balmont/
+-----
+name: Эксклюзивный рюкзак - дипломат KUTUZOV  
+old_price: 33000
+sale: 20
+price: 26400
+description: Поистине дорогая сердцу работа. Более 50 часов кропотливого труда мастера, сотни дециметров эталонной натуральной кожи. Изысканное сочетание цветов (6 вариаций на выбор заказчика). Два отдела на молнии, основное отделение - органайзер для вещей и одежды, дополнительный отдел для ноутбука и документов. Эргономичные лямки с прошивкой. Производится только на заказ под каждого клиента - штучный товар.
+category: Мужские сумки
+url: https://krepkoshop.com/category/eksklyuzivnyy-ryukzak---diplomat-kutuzov-/
+-----
+name: Сумка для Macbook/Notebook by KREPKO
+old_price: 10890
+sale: 20
+price: 8712
+description: Сумка для Macbook/Notebook by KREPKO
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-dlya-macbooknotebook-by-krepko/
+-----
+name: Портфель Bernstaun
+old_price: 15590
+sale: 0
+price: 15590
+description: Один основной вместительный отдел с перегородкой/разделителем по центру. Карман на задней стенке с внешней стороны портфеля на потайной молнии, вмещает документы формата А4.
+
+
+category: Мужские сумки
+url: https://krepkoshop.com/category/portfel-bernstaun/
+-----
+name: Саквояж KREPKO
+old_price: 34990
+sale: 20
+price: 27992
+description: Высококачественная кожа, фурнитура и правильный крой. Ничего лишнего, только качество и шик. Данная классическая модель саквояжа идеально подойдут для ручной клади самолета или будет вашим верным спутников в качестве деловой повседневной сумки.
+category: Мужские сумки
+url: https://krepkoshop.com/category/sakvoyazh-krepko/
+-----
+name: Сумка-планшет ROYS
+old_price: 6890
+sale: 0
+price: 6890
+description: Вместительный основной отдел на молнии. Отделение на молнии на внешней стороне сумки для ключей и телефона. Дополнительное отделение внутри сумки. 
+
+category: Мужские сумки
+url: https://krepkoshop.com/category/sumka-planshet-roys/
+-----
+name: Сумка FRANCHESKA
+old_price: 4990
+sale: 0
+price: 4990
+description: У данной сумки из нашей летней коллекции сумок "бакет-баг" жесткое дно, поэтому найти в ней помаду или ключи не составит труда. Наши матера выполнили модель из прочной гладкой кожи растительного дубления. Вместительный аксессуар одинаково удобно носить как в руке, так и на плече (в комплекте есть съемный ремень).
+category: Женские сумки
+url: https://krepkoshop.com/category/sumka-francheska/
+-----
+name: Дорожная сумка Manhattan
+old_price: 12490
+sale: 20
+price: 9992
+description: Шикарная дорожная сумка Manhattan. Необычный дизайн с треугольными боковинами, актуальный тренд подчеркивающий вашу индивидуальность. Удобна и легка в эксплуатации, притягивает взгляды окружающих.
+category: Женские сумки
+url: https://krepkoshop.com/category/dorozhnaya-sumka-manhattan/
+-----
+name: Сумка наплечная Peter Lacy
+old_price: 7390
+sale: 0
+price: 7390
+description: Сумка наплечная Peter Lacy
+category: Женские сумки
+url: https://krepkoshop.com/category/sumka-naplechnaya-peter-lacy/
+-----
+name: Шоппер Sovitskay
+old_price: 10990
+sale: 0
+price: 10990
+description: Шоппер Sovitskay
+category: Женские сумки
+url: https://krepkoshop.com/category/shopper-sovitskay/
+-----
+name: Шоппер Tereshkova
+old_price: 9590
+sale: 0
+price: 9590
+description: Шоппер Tereshkova
+category: Женские сумки
+url: https://krepkoshop.com/category/shopper-tereshkova/
+-----
+name: Сумочка Maria
+old_price: 11390
+sale: 0
+price: 11390
+description: Сумочка Maria
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-maria/
+-----
+name: Сумочка - клатч FiNE
+old_price: 5790
+sale: 0
+price: 5790
+description: Сумочка - клатч FiNE
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka---klatch-fine/
+-----
+name: Сумочка - клатч BARTO.
+old_price: 5990
+sale: 0
+price: 5990
+description: Сумочка - клатч BARTO.
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka---klatch-barto/
+-----
+name: Женская сумочка на пояс d'Arc
+old_price: 2990
+sale: 0
+price: 2990
+description: Женская сумочка на пояс d'Arc
+category: Женские сумки
+url: https://krepkoshop.com/category/zhenskaya-sumochka-na-poyas-darc/
+-----
+name: Клатч BUK
+old_price: 2590
+sale: 0
+price: 2590
+description: Клатч BUK
+category: Женские сумки
+url: https://krepkoshop.com/category/klatch-buk/
+-----
+name: Сумочка Bella
+old_price: 6590
+sale: 0
+price: 6590
+description: Сумочка Bella
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-bella/
+-----
+name: Сумочка на пояс ANDREEVA
+old_price: 2790
+sale: 0
+price: 2790
+description: Сумочка на пояс ANDREEVA
+category: Женские сумки
+url: https://krepkoshop.com/category/klatch-na-tsepochke-pereimenovat/
+-----
+name: Сумочка Domnika
+old_price: 7890
+sale: 0
+price: 7890
+description: Сумочка Domnika
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-domnika/
+-----
+name: Сумочка Dizhur
+old_price: 7990
+sale: 0
+price: 7990
+description: Сумочка Dizhur
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-dizhur/
+-----
+name: Сумочка-Клатч AKHMATOVA.
+old_price: 5390
+sale: 0
+price: 5390
+description: Сумочка-Клатч AKHMATOVA.
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-klatch-akhmatova/
+-----
+name: Сумочка-подружка Dina
+old_price: 8790
+sale: 0
+price: 8790
+description: Сумочка-подружка Dina
+category: Женские сумки
+url: https://krepkoshop.com/category/sumochka-podruzhka-dina/
+-----
+name: Рюкзак для девушек Countess V
+old_price: 8490
+sale: 20
+price: 6792
+description: Удобная, строгая, при этом очень современная и стильная модель женского рюкзака. 
+category: Женские сумки
+url: https://krepkoshop.com/category/ryukzak-dlya-devushek-countess-v/
+-----
+name: Сумка-пояс для флориста/декоратора
+old_price: 3890
+sale: 0
+price: 3890
+description: Сумка-пояс для флориста/декоратора
+category: Женские сумки
+url: https://krepkoshop.com/category/sumka-poyas-dlya-floristadekoratora/
+-----
+name: Поясная сумка Miller
+old_price: 3690
+sale: 20
+price: 2952
+description: Поясные сумки- это удобные приспособления для самых необходимых мелочей. В них прекрасно помещаются паспорт, мобильный телефон или фотокамера. Сумка незаменима в путешествиях или во время занятий спортом. Она легкая, но вместительная, с регулируемым поясным ремнем. В ней один общий отдел на молнии с эргономичным дизайном. С сумкой на пояс Miller все ваши вещи будут в безопасности и всегда под рукой. ​
+category: Женские сумки
+url: https://krepkoshop.com/category/poyasnaya-sumka-miller/
+-----
+name: Поясная сумка MAY 
+old_price: 3390
+sale: 0
+price: 3390
+description: Поясные сумки - это удобные приспособления для самых необходимых мелочей. В них прекрасно помещаются паспорт, мобильный телефон или фотокамера. Сумка незаменима в путешествиях или во время занятий спортом. Она легкая, но вместительная, с регулируемым поясным ремнем. В ней один общий отдел на молнии с эргономичным дизайном. С сумкой на пояс MAY все ваши вещи будут в безопасности и всегда под рукой. 
+
+category: Женские сумки
+url: https://krepkoshop.com/category/poyasnaya-sumka-may-/
+-----
+name: Деловой рюкзак Bagration
+old_price: 15990
+sale: 20
+price: 12792
+description: Деловой рюкзак Bagration
+category: Женские сумки
+url: https://krepkoshop.com/category/delovoy-ryukzak-bagration/
+-----
+name: Женский портмоне-клатч GONCHAROVA
+old_price: 4990
+sale: 0
+price: 4990
+description: Женский портмоне-клатч GONCHAROVA
+category: Женские сумки
+url: https://krepkoshop.com/category/zhenskiy-portmone-klatch-goncharova/
+-----
+name: Клатч-портмоне Romans
+old_price: 6590
+sale: 0
+price: 6590
+description: Необычный клатч-трансформер с нотками школьного задора. Отдел на молнии, отдел под купюры, основной отдел для смартфона и записок, 5 отделов под пластиковые карты и даже петелька под ручку-мега вместительный и практичный аксессуар. Идеален для деловых леди и учащихся.
+category: Женские сумки
+url: https://krepkoshop.com/category/klatch-romashkina/
+-----
+name: Городской рюкзак Rokosovskiy
+old_price: 8990
+sale: 0
+price: 8990
+description: Один основной отдел, внутренний карман, лицевой карман.
+
+Размер: 40*25*7 см.
+
+— Материал: натуральная кожа растительного дубления
+— Технология изготовления: ручная работа
+— Доступные цвета кожи: черный, темно-коричневый, светло-коричневый, темно-синий, болотно-зеленый, бордово-красный.Цвет нити на выбор заказчика (доступно более 15 цветов).
+category: Женские сумки
+url: https://krepkoshop.com/category/rokosovskiy/
+-----
+name: Рюкзак BRENSON
+old_price: 13990
+sale: 30
+price: 9793
+description: Два основных отделения на молнии. Дополнительные отделения внутри для документов, пишущих принадлежностей, визиток. Мягкие регулируемые лямки. Вмещает в себя ноутбук, документы и бумаги, планшет, ключи, кошелек и другие необходимые вещи.
+category: Женские сумки
+url: https://krepkoshop.com/category/ryukzak-brenson/
+-----
+name: Сумка на пояс TRUMP
+old_price: 6990
+sale: 30
+price: 4893
+description: Один основной отдел на двойной молнии, отделение на молнии сзади, в котрое поместиться портмоне, документы, телефон.
+
+category: Женские сумки
+url: https://krepkoshop.com/category/sumka-na-poyas-tramp/
+-----
+name: КАРТХОЛДЕР ESENIN
+old_price: 1190
+sale: 0
+price: 1190
+description: КАРТХОЛДЕР ESENIN
+category: Картхолдеры
+url: https://krepkoshop.com/category/kartkholdyer-esenin/
+-----
+name: Картхолдер Bernes
+old_price: 1390
+sale: 0
+price: 1390
+description: Картхолдер Bernes
+category: Картхолдеры
+url: https://krepkoshop.com/category/kartkholder-bernes/
+-----
+name: КАРТХОЛДЕР KREPKO
+old_price: 890
+sale: 0
+price: 890
+description: КАРТХОЛДЕР KREPKO
+category: Картхолдеры
+url: https://krepkoshop.com/category/kartkholdyer-krepko/
+-----
+name: Картхолдер Surikov
+old_price: 1390
+sale: 0
+price: 1390
+description: Картхолдер Surikov
+category: Картхолдеры
+url: https://krepkoshop.com/category/kartkholder-surikov/
+-----
+name: Картхолдер CHIZHOV
+old_price: 1290
+sale: 0
+price: 1290
+description: черный
+category: Картхолдеры
+url: https://krepkoshop.com/category/kartkholder-chizhov/
+-----
+name: Кредитница KREPKO
+old_price: 5090
+sale: 0
+price: 5090
+description: Кредитница KREPKO
+category: Картхолдеры
+url: https://krepkoshop.com/category/kreditnitsa-krepko/
+-----
+name: Мини - бумажник DOVLATOV
+old_price: 1890
+sale: 0
+price: 1890
+description: Мини - бумажник DOVLATOV
+category: Картхолдеры
+url: https://krepkoshop.com/category/mini---bumazhnik-dovlatov/
+-----
+name: Портмоне для автодокументов TUTCHEV
+old_price: 3390
+sale: 0
+price: 3390
+description: Портмоне для автодокументов TUTCHEV
+category: Для документов
+url: https://krepkoshop.com/category/portmone-dlya-avtodokumentov-tutchev/
+-----
+name: Фирменная корочка на паспорт KREPKO
+old_price: 990
+sale: 20
+price: 792
+description: Базовая корочка на паспорт, выполнена из цельного куска кожи цельнокроеным методом. В стоимость входит тиснение на корочке золотым или серебряным шрифтом. Можно оттеснить ФИО или другую креативную надпись.
+category: Для документов
+url: https://krepkoshop.com/category/firmennaya-korochka-na-pasport-krepko/
+-----
+name: Корочка BERING
+old_price: 1890
+sale: 20
+price: 1512
+description: Корочка на паспорт BERING
+category: Для документов
+url: https://krepkoshop.com/category/korochka-bering/
+-----
+name: Холдер для документов ODOEVSKIY
+old_price: 1990
+sale: 0
+price: 1990
+description: Холдер для документов ODOEVSKIY
+category: Для документов
+url: https://krepkoshop.com/category/kholder-dlya-dokumentov-odoevskiy/
+-----
+name: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+old_price: 2990
+sale: 20
+price: 2392
+description: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+category: Для документов
+url: https://krepkoshop.com/category/kholdyer-dlya-dokumyentov-lermontov/
+-----
+name: Холдер для документов ANNENSKIY
+old_price: 5490
+sale: 20
+price: 4392
+description: Холдер для документов ANNENSKIY
+category: Для документов
+url: https://krepkoshop.com/category/kholder-dlya-dokumentov-annenskiy/
+-----
+name: Портмоне для автодокументов Skobelev
+old_price: 2990
+sale: 0
+price: 2990
+description: Портмоне для автодокументов Skobelev
+category: Для документов
+url: https://krepkoshop.com/category/portmone-dlya-avtodokumentov-skobelev/
+-----
+name: ТРЕВЕЛ KARAMZIN
+old_price: 2790
+sale: 20
+price: 2232
+description: ТРЕВЕЛ KARAMZIN
+category: Для документов
+url: https://krepkoshop.com/category/tryevyel-karamzin/
+-----
+name: Обложка на студенческий билет KREPKO v.1
+old_price: 1990
+sale: 0
+price: 1990
+description: Круче чем паспорт, почти как ФСБ! Студенческий билет даёт доступ к знаниям, столовой, общежитию и закрытым вечеринкам. Символ лучших лет жизни и его надо беречь. Сохраните билет в целости и придаст индивидуальность - корочка ручной работы из натуральной кожи от KREPKO.
+category: Для документов
+url: https://krepkoshop.com/category/oblozhka-na-studencheskiy-bilet-krepko-v1/
+-----
+name:  КОРОЧКА НА ПАСПОРТ KREPKO
+old_price: 1590
+sale: 20
+price: 1272
+description: Базовая корочка для паспорта защитит ваш документ от повреждений. Только стиль, ни чего лишнего!
+category: Для документов
+url: https://krepkoshop.com/category/-korochka-na-pasport-krepko/
+-----
+name: Папка для семейных документов Famiglia
+old_price: 4390
+sale: 0
+price: 4390
+description: Органайзер папка для документов Famiglia - очень много отделений для визиток и карт, паспортов всей семьи, дипломов, свидетельств о рождении, договоров купли-продажи, свидетельств собственности, прав и документов на автомобиль.
+category: Для документов
+url: https://krepkoshop.com/category/papka-dlya-semeynykh-dokumentov-famiglia/
+-----
+name: Органайзер для семейных документов Famiglia
+old_price: 12990
+sale: 0
+price: 12990
+description: Органайзер папка для документов Famiglia - очень много отделений для визиток и карт, паспортов всей семьи, дипломов, свидетельств о рождении, договоров купли-продажи, свидетельств собственности, прав и документов на автомобиль.
+category: Для документов
+url: https://krepkoshop.com/category/organayzer-dlya-semeynykh-dokumentov-famiglia/
+-----
+name: Женский холдер Aspaziya
+old_price: 5090
+sale: 0
+price: 5090
+description: Женский холдер Aspaziya
+category: Для документов
+url: https://krepkoshop.com/category/zhenskiy-kholder-aspaziya/
+-----
+name: Деловой тревел на молнии Harms
+old_price: 8890
+sale: 30
+price: 6223
+description: Деловой тревел на молнии Harms содержит в себе 11 отделов под пластиковые карты, 1 отдел под паспорт или
+билеты, отдел под купюры (вместительность 30-50 купюр), отдел на молнии под
+монеты.
+category: Для документов
+url: https://krepkoshop.com/category/delovoy-trevel-na-molnii-harms/
+-----
+name: Рабочая папка А5 TUMANSKIY
+old_price: 9190
+sale: 30
+price: 6433
+description: черный
+category: Для документов
+url: https://krepkoshop.com/category/rabochaya-papka-a5-tumanskiy/
+-----
+name: Папка - органайзер формат А4 DZERZHINSKY 
+old_price: 11990
+sale: 0
+price: 11990
+description: Вместительность: до 30ти листов формата А4, 2 отдела под паспорта или
+другие документы, 2 вместительных отдела под бумаги формата А5, отдел на
+молнии под документы, билеты или купюры.
+category: Для документов
+url: https://krepkoshop.com/category/papka---organayzer-format-a4-dzerzhinsky-/
+-----
+name: Рабочая папка А4 CHAYKOVSKIY
+old_price: 12590
+sale: 0
+price: 12590
+description: Рабочая папка А4 CHAYKOVSKIY
+category: Для документов
+url: https://krepkoshop.com/category/rabochaya-papka-a4-chaykovskiy/
+-----
+name: ЗАЖИМ ДЛЯ КУПЮР KREPKO
+old_price: 1690
+sale: 0
+price: 1690
+description: черный
+category: Зажимы для денег
+url: https://krepkoshop.com/category/zazhim-dlya-kupyur-krepko/
+-----
+name: ЗАЖИМ ДЛЯ КУПЮР RAKHMANINOV
+old_price: 2690
+sale: 0
+price: 2690
+description: ЗАЖИМ ДЛЯ КУПЮР RAKHMANINOV
+category: Зажимы для денег
+url: https://krepkoshop.com/category/zazhim-dlya-kupyur-rakhmaninov/
+-----
+name: Ключница KREPKO
+old_price: 1490
+sale: 0
+price: 1490
+description: Классическая ключница из натуральной кожи. Ничего лишнего. Качественная плотная натуральная кожа и итальянская фурнитура. Залог того, что данный аксессуар станет верным спутником Вам на долгие годы. Ключница выполнена цельнокроеным способом, на данный аксессуар использован цельный кусок качественной кожи. 
+
+МАТЕРИАЛ: натуральная кожа растительного дубления
+ТЕХНОЛОГИЯ ИЗГОТОВЛЕНИЯ: сделано вручную в России
+РАЗМЕР:12*6см
+
+Доступные цвета кожи: черный, темно-коричневый, светло-коричневый, темно-синий, болотно-зеленый, красный.
+Цвет нити на выбор заказчика (доступно более 15 цветов).​​​​​
+
+В подарок тиснение имени будущего владельца изделия, уточняйте у менеджера при оформлении Вашего заказа.​​
+
+Обратите внимание: Реальный цвет изделий может несколько отличаться от того, что вы видите на экране из-за разницы в цветопередаче устройств и разной фактуры натуральной кожи.
+category: Ключницы
+url: https://krepkoshop.com/category/klyuchnitsa-krepko/
+-----
+name: Ключница GERTSEN
+old_price: 1990
+sale: 0
+price: 1990
+description: Ключница GERTSEN
+category: Ключницы
+url: https://krepkoshop.com/category/klyuchnitsa-gertsen/
+-----
+name: Ключница GERTSEN (малая)
+old_price: 1690
+sale: 0
+price: 1690
+description: Ключница GERTSEN (малая)
+category: Ключницы
+url: https://krepkoshop.com/category/klyuchnitsa-gertsen-malaya/
+-----
+name: Парные кожаные браслеты Twix
+old_price: 1490
+sale: 0
+price: 1490
+description: Парные кожаные браслеты Twix
+category: Браслеты
+url: https://krepkoshop.com/category/parnye-kozhanye-braslety-twix/
+-----
+name: БРАСЛЕТ KREPKO
+old_price: 790
+sale: 0
+price: 790
+description: кора сосны
+category: Браслеты
+url: https://krepkoshop.com/category/braslyet-krepko/
+-----
+name: Органайзер на козырек авто KREPKO (малый)  
+old_price: 2190
+sale: 0
+price: 2190
+description: Невероятно практичная, удобная и эстетичная вещь. 
+- 3 кармашка под карточки или записки/билеты, 
+- петля для ручки/стилуса, 
+- крепление для очков.
+- универсальное крепление крепление подходит для любого козырька
+category: Для водителей
+url: https://krepkoshop.com/category/organayzer-na-kozyrek-avto-krepko-malyy-/
+-----
+name: Органайзер на козырек авто KREPKO (большой)
+old_price: 2990
+sale: 0
+price: 2990
+description: Невероятно практичная, удобная и эстетичная вещь. 
+- 6 кармашков под карточки или записки/билеты, 
+- петля для ручки/стилуса, 
+- крепление для очков.
+- универсальное крепление крепление подходит для любого козырька
+category: Для водителей
+url: https://krepkoshop.com/category/organayzer-na-kozyrek-avto-krepko-bolshoy/
+-----
+name: Портмоне для автодокументов TUTCHEV
+old_price: 3390
+sale: 0
+price: 3390
+description: Портмоне для автодокументов TUTCHEV
+category: Для водителей
+url: https://krepkoshop.com/category/portmone-dlya-avtodokumentov-tutchev/
+-----
+name: Чехол-Скрутка для инструментов KREPKO 
+old_price: 4290
+sale: 0
+price: 4290
+description: Украсит любой авто, придаст лоск и практичность. Удобная чехол-скрутка для инструментов из натуральной кожи.
+category: Для водителей
+url: https://krepkoshop.com/category/chekhol-skrutka-dlya-instrumentov-krepko-/
+-----
+name: Брелок с логотипом авто 
+old_price: 490
+sale: 0
+price: 490
+description: Брелок с гравировкой марки вашего авто из натуральной кожи ручной работы. Цвет кожи и нитей на выбор-полный полет вашей фантазии. Любая форма брелока (круглый, овальный, квадратный, прямоуголный...). Яркий подарок себе и близким автолюбителям.
+
+category: Для водителей
+url: https://krepkoshop.com/category/brelok-s-logotipom-avto-/
+-----
+name: Набор "За рулём!"
+old_price: 7290
+sale: 0
+price: 7290
+description: Набор "За рулём!"
+category: Для водителей
+url: https://krepkoshop.com/category/nabor-za-rulyom/
+-----
+name: Автомобильный карман-органайзер 
+old_price: 2190
+sale: 20
+price: 1752
+description: Автомобильный карман-органайзер из натуральной кожи ручной работы. 7 цветов кожи на выбор, прострочку тоже выбираете сами. Шик, блеск, красота и практичность!
+category: Для водителей
+url: https://krepkoshop.com/category/avtomobilnyy-karman-organayzer-/
+-----
+name: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+old_price: 2990
+sale: 20
+price: 2392
+description: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+category: Для водителей
+url: https://krepkoshop.com/category/kholdyer-dlya-dokumyentov-lermontov/
+-----
+name: Портмоне для автодокументов Skobelev
+old_price: 2990
+sale: 0
+price: 2990
+description: Портмоне для автодокументов Skobelev
+category: Для водителей
+url: https://krepkoshop.com/category/portmone-dlya-avtodokumentov-skobelev/
+-----
+name: Холдер для документов ANNENSKIY
+old_price: 5490
+sale: 20
+price: 4392
+description: Холдер для документов ANNENSKIY
+category: Для водителей
+url: https://krepkoshop.com/category/kholder-dlya-dokumentov-annenskiy/
+-----
+name: Холдер для документов ODOEVSKIY
+old_price: 1990
+sale: 0
+price: 1990
+description: Холдер для документов ODOEVSKIY
+category: Для водителей
+url: https://krepkoshop.com/category/kholder-dlya-dokumentov-odoevskiy/
+-----
+name: Чехол для сервисной книжки автомобиля KREPKO
+old_price: 4790
+sale: 0
+price: 4790
+description: Отличный вариант подарка для настоящего автомобилиста. 
+category: Для водителей
+url: https://krepkoshop.com/category/chekhol-dlya-servisnoy-knizhki-avtomobilya-krepko/
+-----
+name: Портмоне FET
+old_price: 6490
+sale: 0
+price: 6490
+description: Портмоне FET
+category: Для водителей
+url: https://krepkoshop.com/category/portmone-fet/
+-----
+name: ЕЖЕДНЕВНИК SHOLOHOV
+old_price: 4490
+sale: 0
+price: 4490
+description: ЕЖЕДНЕВНИК SHOLOHOV
+category: Для Офиса
+url: https://krepkoshop.com/category/yezhyednyevnik-sholohov/
+-----
+name: Ремешок для часов KREPKO
+old_price: 1490
+sale: 0
+price: 1490
+description: В комплекте идет крепление для часов. Материал пряжки полированная нержавеющая сталь.  Два основных размера 20 и 22 мм. При заказе укажите менеджеру необходимый размер.
+category: Для Офиса
+url: https://krepkoshop.com/category/remeshok-dlya-chasov-krepko/
+-----
+name: ЕЖЕДНЕВНИК DOSTOEVSKIY
+old_price: 4490
+sale: 0
+price: 4490
+description: ЕЖЕДНЕВНИК DOSTOEVSKIY
+category: Для Офиса
+url: https://krepkoshop.com/category/yezhyednyevnik-dostoevskiy/
+-----
+name: Органайзер на кольцах (ежедневник)
+old_price: 5990
+sale: 0
+price: 5990
+description: Органайзер на кольцах (ежедневник)
+category: Для Офиса
+url: https://krepkoshop.com/category/organayzer-na-koltsakh-ezhednevnik/
+-----
+name: Ежедневник А4 TOLSTOY
+old_price: 9990
+sale: 0
+price: 9990
+description: Ежедневник А4 TOLSTOY
+category: Для Офиса
+url: https://krepkoshop.com/category/yezhednevnik-a4-tolstoy/
+-----
+name: Планинг KREPKO
+old_price: 4590
+sale: 0
+price: 4590
+description: Планинг KREPKO
+category: Для Офиса
+url: https://krepkoshop.com/category/339/
+-----
+name: Ежедневник на кольцах NABOKOV
+old_price: 2990
+sale: 0
+price: 2990
+description: Ежедневник на кольцах NABOKOV
+category: Для Офиса
+url: https://krepkoshop.com/category/yezhednevnik-na-koltsakh-nabokov/
+-----
+name: Ежедневник - органайзер BRIN
+old_price: 8490
+sale: 0
+price: 8490
+description: Ежедневник-органайзер для делового человека. Плотная кожаная обложка с фиксацией на качественную кнопку защитит любое Ваше содержимое.
+category: Для Офиса
+url: https://krepkoshop.com/category/yezhednevnik---organayzer-brin/
+-----
+name: Пенал Vrubel
+old_price: 890
+sale: 0
+price: 890
+description: Пенал Vrubel
+category: Для Офиса
+url: https://krepkoshop.com/category/penal-vrubel/
+-----
+name: S.KOVALEVSKAYA
+old_price: 990
+sale: 0
+price: 990
+description: S.KOVALEVSKAYA
+category: Для Офиса
+url: https://krepkoshop.com/category/skovalevskaya/
+-----
+name: Пенал Malevich
+old_price: 3390
+sale: 0
+price: 3390
+description: Пенал Malevich
+category: Для Офиса
+url: https://krepkoshop.com/category/penal-malevich/
+-----
+name: Визитница 3-х секционная
+old_price: 3490
+sale: 0
+price: 3490
+description: Визитница 3-х секционная
+category: Для Офиса
+url: https://krepkoshop.com/category/vizitnitsa-3-kh-sektsionnaya/
+-----
+name: Коврик для мыши KREPKO
+old_price: 2290
+sale: 20
+price: 1832
+description: Коврик для мыши KREPKO
+category: Для Офиса
+url: https://krepkoshop.com/category/kovrik-dlya-myshi-krepko/
+-----
+name: Настольный набор руководителя Dumas
+old_price: 25490
+sale: 0
+price: 25490
+description: Настольный набор для руководителя выполненный полностью из высококачественной натуральной кожи. Набор полностью выполнен вручную, в том числе шов. 
+category: Для Офиса
+url: https://krepkoshop.com/category/nastolnyy-nabor-rukovoditelya-dumas/
+-----
+name: Сумка-папка KREPKO
+old_price: 7990
+sale: 20
+price: 6392
+description: Сумка-папка KREPKO
+category: Для Офиса
+url: https://krepkoshop.com/category/sumka-papka-krepko/
+-----
+name: Визитница карманная
+old_price: 1190
+sale: 0
+price: 1190
+description: Визитница карманная
+category: Для Офиса
+url: https://krepkoshop.com/category/vizitnitsa-karmannaya/
+-----
+name: Набор для офиса S. P. J. Plankton
+old_price: 11990
+sale: 0
+price: 11990
+description: Набор для настоящего ТОП - менеджера. В наборе: коврик для мышки, органайзер на кольцах, визитница 3-х секционная, планинг из натуральной кожи.
+category: Для Офиса
+url: https://krepkoshop.com/category/nabor-dlya-ofisa-s-p-j-plankton/
+-----
+name: Рабочая папка А5 TUMANSKIY
+old_price: 9190
+sale: 30
+price: 6433
+description: черный
+category: Для Офиса
+url: https://krepkoshop.com/category/rabochaya-papka-a5-tumanskiy/
+-----
+name: Папка - органайзер формат А4 DZERZHINSKY 
+old_price: 11990
+sale: 0
+price: 11990
+description: Вместительность: до 30ти листов формата А4, 2 отдела под паспорта или
+другие документы, 2 вместительных отдела под бумаги формата А5, отдел на
+молнии под документы, билеты или купюры.
+category: Для Офиса
+url: https://krepkoshop.com/category/papka---organayzer-format-a4-dzerzhinsky-/
+-----
+name: Рабочая папка А4 CHAYKOVSKIY
+old_price: 12590
+sale: 0
+price: 12590
+description: Рабочая папка А4 CHAYKOVSKIY
+category: Для Офиса
+url: https://krepkoshop.com/category/rabochaya-papka-a4-chaykovskiy/
+-----
+name: Футляр для очков TSIOLKOVSKY
+old_price: 1990
+sale: 0
+price: 1990
+description: Футляр для очков из натуральной кожи, защитит ваши очки от любых повреждений. Делаются по индивидуальному заказу именно под ваши любимые очки.
+category: Для Офиса
+url: https://krepkoshop.com/category/futlyar-dlya-ochkov-tsiolkovsky/
+-----
+name: Ремешок для часов KREPKO
+old_price: 1490
+sale: 0
+price: 1490
+description: В комплекте идет крепление для часов. Материал пряжки полированная нержавеющая сталь.  Два основных размера 20 и 22 мм. При заказе укажите менеджеру необходимый размер.
+category: Ремни
+url: https://krepkoshop.com/category/remeshok-dlya-chasov-krepko/
+-----
+name: Классический ремень KREPKO с прошивкой
+old_price: 4090
+sale: 0
+price: 4090
+description: Классический ремень KREPKO с прошивкой
+category: Ремни
+url: https://krepkoshop.com/category/klassicheskiy-remen-krepko-s-proshivkoy/
+-----
+name: Ремень KREPKO классический. 
+old_price: 5000
+sale: 0
+price: 5000
+description: Этот ремень создан специально под обувь. Мягкая телячья кожа толщиной 1.4 мм пошитая в два слоя, тоненький шов со строчкой 1.5 мм, ровная загибка края. Специальные армирующие материалы, которые обеспечивают долгий срок службы ремня. И идеальная ручная окраска ремня точно в цвет вашей обуви. Что еще нужно?=)
+Незаменимый аксессуар для уважающего себя мужчины.
+
+category: Ремни
+url: https://krepkoshop.com/category/310/
+-----
+name: Ремень KREPKO
+old_price: 3490
+sale: 0
+price: 3490
+description: Классический поясной ремень из натуральной кожи. Итальянская фурнитура 3 расцветок. Отлично подходит к брюкам и джинсам. Прекрасный подарок и незаменимый аксессуар.
+category: Ремни
+url: https://krepkoshop.com/category/remen-krepko_1/
+-----
+name: Ремень женский KREPKO
+old_price: 1990
+sale: 0
+price: 1990
+description: ​Классический поясной ремень из натуральной кожи. Итальянская фурнитура 3 расцветок. Отлично подходит к брюкам и джинсам. Прекрасный подарок и незаменимый аксессуар.
+
+
+category: Ремни
+url: https://krepkoshop.com/category/remen-zhenskiy-krepko/
+-----
+name: Ремешок для Apple Watch из натуральной кожи 
+old_price: 2690
+sale: 30
+price: 1883
+description: Ремешок традиционного дизайна. Выполнен из натуральной кожи растительного дубления, которая со временем естественным образом стареет и покрывается благородной патиной. Ремешок подойдет для любого корпуса Apple Watch соответствующего размера (38 мм/42 мм). В комплекте крепление для часов.
+category: Ремешки
+url: https://krepkoshop.com/category/remeshok-dlya-apple-watch-iz-naturalnoy-kozhi-/
+-----
+name: Несессер MUN
+old_price: 2990
+sale: 30
+price: 2093
+description: Несессер из натуральной кожи. Незаменимый аксессуар в путешествии, деловой поездке или походе. С его помощью предметы первой необходимости и личной гигиены всегда по рукой.
+category: Для путешествий
+url: https://krepkoshop.com/category/nesesser-mun/
+-----
+name: Рюкзак BRENSON
+old_price: 13990
+sale: 30
+price: 9793
+description: Два основных отделения на молнии. Дополнительные отделения внутри для документов, пишущих принадлежностей, визиток. Мягкие регулируемые лямки. Вмещает в себя ноутбук, документы и бумаги, планшет, ключи, кошелек и другие необходимые вещи.
+category: Для путешествий
+url: https://krepkoshop.com/category/ryukzak-brenson/
+-----
+name: Деловой тревел на молнии Harms
+old_price: 8890
+sale: 30
+price: 6223
+description: Деловой тревел на молнии Harms содержит в себе 11 отделов под пластиковые карты, 1 отдел под паспорт или
+билеты, отдел под купюры (вместительность 30-50 купюр), отдел на молнии под
+монеты.
+category: Для путешествий
+url: https://krepkoshop.com/category/delovoy-trevel-na-molnii-harms/
+-----
+name: Автомобильный карман-органайзер 
+old_price: 2190
+sale: 20
+price: 1752
+description: Автомобильный карман-органайзер из натуральной кожи ручной работы. 7 цветов кожи на выбор, прострочку тоже выбираете сами. Шик, блеск, красота и практичность!
+category: Для путешествий
+url: https://krepkoshop.com/category/avtomobilnyy-karman-organayzer-/
+-----
+name: Корочка BERING
+old_price: 1890
+sale: 20
+price: 1512
+description: Корочка на паспорт BERING
+category: Для путешествий
+url: https://krepkoshop.com/category/korochka-bering/
+-----
+name: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+old_price: 2990
+sale: 20
+price: 2392
+description: ХОЛДЕР ДЛЯ ДОКУМЕНТОВ LERMONTOV
+category: Для путешествий
+url: https://krepkoshop.com/category/kholdyer-dlya-dokumyentov-lermontov/
+-----
+name: ТРЕВЕЛ KARAMZIN
+old_price: 2790
+sale: 20
+price: 2232
+description: ТРЕВЕЛ KARAMZIN
+category: Для путешествий
+url: https://krepkoshop.com/category/tryevyel-karamzin/
+-----
+name: Холдер для документов ANNENSKIY
+old_price: 5490
+sale: 20
+price: 4392
+description: Холдер для документов ANNENSKIY
+category: Для путешествий
+url: https://krepkoshop.com/category/kholder-dlya-dokumentov-annenskiy/
+-----
+name: Дорожная сумка Beketov
+old_price: 13990
+sale: 20
+price: 11192
+description: Великолепная дорожная сумка созданная с умом. 
+category: Для путешествий
+url: https://krepkoshop.com/category/dorozhnaya-sumka-beketov/
+-----
+name: Дорожная сумка Manhattan
+old_price: 12490
+sale: 20
+price: 9992
+description: Шикарная дорожная сумка Manhattan. Необычный дизайн с треугольными боковинами, актуальный тренд подчеркивающий вашу индивидуальность. Удобна и легка в эксплуатации, притягивает взгляды окружающих.
+category: Для путешествий
+url: https://krepkoshop.com/category/dorozhnaya-sumka-manhattan/
+-----
+name: Дорожная сумка BOUR
+old_price: 11990
+sale: 20
+price: 9592
+description: Дорожная сумка BOUR
+category: Для путешествий
+url: https://krepkoshop.com/category/dorozhnaya-sumka-bour/
+-----
+name: Сумка путешественника DEZHNEV
+old_price: 13990
+sale: 20
+price: 11192
+description: Сумка путешественника DEZHNEV
+category: Для путешествий
+url: https://krepkoshop.com/category/sumka-puteshestvennika-dezhnev/
+-----
+name: Поясная сумка Miller
+old_price: 3690
+sale: 20
+price: 2952
+description: Поясные сумки- это удобные приспособления для самых необходимых мелочей. В них прекрасно помещаются паспорт, мобильный телефон или фотокамера. Сумка незаменима в путешествиях или во время занятий спортом. Она легкая, но вместительная, с регулируемым поясным ремнем. В ней один общий отдел на молнии с эргономичным дизайном. С сумкой на пояс Miller все ваши вещи будут в безопасности и всегда под рукой. ​
+category: Для путешествий
+url: https://krepkoshop.com/category/poyasnaya-sumka-miller/
+-----
+name: Рюкзак Nevskiy
+old_price: 15990
+sale: 20
+price: 12792
+description: Кожаный рюкзак, который мы создали совместно с нашими любимыми клиентами. 
+category: Для путешествий
+url: https://krepkoshop.com/category/355/
+-----
+name: Эксклюзивный рюкзак - дипломат KUTUZOV  
+old_price: 33000
+sale: 20
+price: 26400
+description: Поистине дорогая сердцу работа. Более 50 часов кропотливого труда мастера, сотни дециметров эталонной натуральной кожи. Изысканное сочетание цветов (6 вариаций на выбор заказчика). Два отдела на молнии, основное отделение - органайзер для вещей и одежды, дополнительный отдел для ноутбука и документов. Эргономичные лямки с прошивкой. Производится только на заказ под каждого клиента - штучный товар.
+category: Для путешествий
+url: https://krepkoshop.com/category/eksklyuzivnyy-ryukzak---diplomat-kutuzov-/
+-----
+name: Деловой рюкзак Bagration
+old_price: 15990
+sale: 20
+price: 12792
+description: Деловой рюкзак Bagration
+category: Для путешествий
+url: https://krepkoshop.com/category/delovoy-ryukzak-bagration/
+-----
+name: Фирменная корочка на паспорт KREPKO
+old_price: 990
+sale: 20
+price: 792
+description: Базовая корочка на паспорт, выполнена из цельного куска кожи цельнокроеным методом. В стоимость входит тиснение на корочке золотым или серебряным шрифтом. Можно оттеснить ФИО или другую креативную надпись.
+category: Для путешествий
+url: https://krepkoshop.com/category/firmennaya-korochka-na-pasport-krepko/
+-----
+name: Сумка- кобура KREPKO
+old_price: 8900
+sale: 20
+price: 7120
+description: Сумка- кобура KREPKO
+category: Для путешествий
+url: https://krepkoshop.com/category/sumka--kobura-krepko/
+-----
+name:  КОРОЧКА НА ПАСПОРТ KREPKO
+old_price: 1590
+sale: 20
+price: 1272
+description: Базовая корочка для паспорта защитит ваш документ от повреждений. Только стиль, ни чего лишнего!
+category: Для путешествий
+url: https://krepkoshop.com/category/-korochka-na-pasport-krepko/
+-----
+name: Сумка GROZNY
+old_price: 6290
+sale: 20
+price: 5032
+description: Сумка GROZNY
+category: Для путешествий
+url: https://krepkoshop.com/category/sumka-grozny/
+-----
+name: Сумка-органайзер для велосипеда
+old_price: 7990
+sale: 20
+price: 6392
+description: Сумка-органайзер для велосипеда
+category: Для путешествий
+url: https://krepkoshop.com/category/sumka-organayzer-dlya-velosipeda/
+-----
+name: Дорожная сумка Atlasov
+old_price: 14990
+sale: 20
+price: 11992
+description: Вместительная дорожная сумка, выполненная в классическом стиле. Отличительной чертой сумки являются отделения на молнии по бокам, в которых поместятся важные мелочи в Вашем путешествии. За счёт своей округлой формы сумка очень удобна и вместительна.
+
+category: Для путешествий
+url: https://krepkoshop.com/category/dorozhnaya-sumka-atlasov/
+-----
+name: Саквояж KREPKO
+old_price: 34990
+sale: 20
+price: 27992
+description: Высококачественная кожа, фурнитура и правильный крой. Ничего лишнего, только качество и шик. Данная классическая модель саквояжа идеально подойдут для ручной клади самолета или будет вашим верным спутников в качестве деловой повседневной сумки.
+category: Для путешествий
+url: https://krepkoshop.com/category/sakvoyazh-krepko/
+-----
+name: Сумка на пояс TRUMP
+old_price: 6990
+sale: 30
+price: 4893
+description: Один основной отдел на двойной молнии, отделение на молнии сзади, в котрое поместиться портмоне, документы, телефон.
+
+category: Для путешествий
+url: https://krepkoshop.com/category/sumka-na-poyas-tramp/
+-----
+name: Сумка SHEIN
+old_price: 12590
+sale: 20
+price: 10072
+description: Сумка SHEIN
+category: Для гаджетов
+url: https://krepkoshop.com/category/sumka-shein/
+-----
+name: Ремешок для Apple Watch из натуральной кожи 
+old_price: 2690
+sale: 30
+price: 1883
+description: Ремешок традиционного дизайна. Выполнен из натуральной кожи растительного дубления, которая со временем естественным образом стареет и покрывается благородной патиной. Ремешок подойдет для любого корпуса Apple Watch соответствующего размера (38 мм/42 мм). В комплекте крепление для часов.
+category: Для гаджетов
+url: https://krepkoshop.com/category/remeshok-dlya-apple-watch-iz-naturalnoy-kozhi-/
+-----
+name: Сумка-папка KREPKO
+old_price: 7990
+sale: 20
+price: 6392
+description: Сумка-папка KREPKO
+category: Для гаджетов
+url: https://krepkoshop.com/category/sumka-papka-krepko/
+-----
+name: Рабочая папка А5 TUMANSKIY
+old_price: 9190
+sale: 30
+price: 6433
+description: черный
+category: Для гаджетов
+url: https://krepkoshop.com/category/rabochaya-papka-a5-tumanskiy/
+-----
+name: Чехол для Macbook #1
+old_price: 4490
+sale: 20
+price: 3592
+description: Эта универсальная папка создана для удобной переноски разных ноутбуков. В ней с таким же комфортом можно носить скетчбук, документы, планшет и другие необходимые вещи. Она выполнена из качественной натуральной кожи снаружи и замши внутри. Пластиковая молния гарантирует сохранность содержимого и не царапает поверхность.
+
+МАТЕРИАЛ: натуральная кожа растительного дубления 
+ТЕХНОЛОГИЯ ИЗГОТОВЛЕНИЯ: сделано вручную в России 
+Размеры подбираются индивидуально под ноутбук клиента.
+
+Доступные цвета кожи: черный, темно-коричневый, светло-коричневый, темно-синий, болотно-зеленый, бордово-красный.
+Цвет нити на выбор заказчика (доступно более 15 цветов). 
+
+Возможно бесплатное тиснение имени будущего владельца изделия, уточняйте у менеджера при оформлении Вашего заказа.
+
+Обратите внимание: Реальный цвет изделий может несколько отличаться от того, что вы видите на экране из-за разницы в цветопередаче устройств и разной фактуры натуральной кожи.
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-macbook-1/
+-----
+name: Чехол-бумажник BLOK
+old_price: 2990
+sale: 20
+price: 2392
+description: Чехол-бумажник BLOK
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-bumazhnik-dlya-telefona-blok/
+-----
+name: Чехол для iPhone #6 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7) 
+old_price: 990
+sale: 20
+price: 792
+description: Переживаешь за сохранность своего навороченного смартфона​ во время повседневного использования? Тогда этот чехол для тебя. Чехол выполнен из качественной 100% кожи прекрасно защитит ваш гаджет в повседневном использовании. Чехол плотно облегает телефон, что не позволяет телефону самопроизвольно выпасть из чехла. Дополнительное отделение позволяет носить в чехле банковские/скидочные карты и купюры в сложенном виде.
+
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-iphone-6-dlya-modeley-xs-max-xs-xr-8-plus-8-7-plus7-/
+-----
+name: Папка для Macbook VVEDENSKIY (13 дюймов)
+old_price: 5690
+sale: 20
+price: 4552
+description: Папка для Macbook VVEDENSKIY (13 дюймов)
+category: Для гаджетов
+url: https://krepkoshop.com/category/papka-dlya-macbook-vvedenskiy-13dyuymov/
+-----
+name: Чехол для iPhone #1 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7)
+old_price: 890
+sale: 20
+price: 712
+description: Переживаешь за сохранность своего навороченного смартфона​ во время повседневного использования? Тогда этот чехол для тебя. Чехол выполнен из качественной 100% кожи прекрасно защитит ваш гаджет в повседневном использовании. Плотно облегает телефон, что не позволяет ему самопроизвольно выпасть из чехла. Даже для скидочных карт в нём место найдётся..
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-iphone-1-dlya-modeley-xs-max-xs-xr-8-plus-8-7-plus7/
+-----
+name: Коврик для мыши KREPKO
+old_price: 2290
+sale: 20
+price: 1832
+description: Коврик для мыши KREPKO
+category: Для гаджетов
+url: https://krepkoshop.com/category/kovrik-dlya-myshi-krepko/
+-----
+name: Чехол для iPhone #2 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7)
+old_price: 1490
+sale: 20
+price: 1192
+description: Чехол для iPhone #2 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7)
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-telefona-borodin/
+-----
+name: Бумажник-чехол для телефона AKSAKOV
+old_price: 2990
+sale: 20
+price: 2392
+description: Бумажник-чехол для телефона AKSAKOV
+category: Для гаджетов
+url: https://krepkoshop.com/category/bumazhnik-chekhol-dlya-telefona-aksakov/
+-----
+name: Чехол для iPhone #3 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7)
+old_price: 1190
+sale: 20
+price: 952
+description: Переживаешь за сохранность своего навороченного смартфона​ во время повседневного использования? Тогда этот чехол для тебя. Чехол выполнен из качественной 100% кожи прекрасно защитит ваш гаджет в повседневном использовании. Чехол плотно облегает телефон, что не позволяет телефону самопроизвольно выпасть из чехла. Дополнительное отделение позволяет носить в чехле банковские/скидочные карты и купюры в сложенном виде.
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-iphone-3-dlya-modeley-xs-max-xs-xr-8-plus-8-7-plus7/
+-----
+name: Чехол на AirPods
+old_price: 990
+sale: 20
+price: 792
+description: Чехол на AirPods
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-na-airpods/
+-----
+name: Бандольер. Чехол для Iphone XS max, XS, X, XR, 8, 8Plus, 7, 7PLUS
+old_price: 2990
+sale: 20
+price: 2392
+description: Идеальный аксессуар для голивудской премьеру, повседневной суеты или музыкального фестиваля. 
+category: Для гаджетов
+url: https://krepkoshop.com/category/bandoler-chekhol-dlya-iphone-xs-max-xs-x-xr-8-8plus-7-7plus/
+-----
+name: Чехол для IPad #1
+old_price: 2890
+sale: 20
+price: 2312
+description: Чехол для IPad #1
+category: Для гаджетов
+url: https://krepkoshop.com/category/chyekhol-dlya-ipadipad-mini/
+-----
+name: Чехол для iPhone #4 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7)
+old_price: 1790
+sale: 20
+price: 1432
+description: Переживаешь за сохранность своего навороченного смартфона​ во время повседневного использования? Тогда этот чехол для тебя. Чехол выполнен из качественной 100% кожи прекрасно защитит ваш гаджет в повседневном использовании. Чехол плотно облегает телефон, что не позволяет телефону самопроизвольно выпасть из чехла. Дополнительное отделение позволяет носить в чехле банковские/скидочные карты и купюры в сложенном виде.
+
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-iphone-4-dlya-modeley-xs-max-xs-xr-8-plus-8-7-plus7/
+-----
+name: Чехол для iPhone #5 (для моделей Xs max, Xs, Xr, 8 plus, 8, 7 plus,7) 
+old_price: 1190
+sale: 20
+price: 952
+description: Переживаешь за сохранность своего навороченного смартфона​ во время повседневного использования? Тогда этот чехол для тебя. Чехол выполнен из качественной 100% кожи прекрасно защитит ваш гаджет в повседневном использовании. Чехол плотно облегает телефон, что не позволяет телефону самопроизвольно выпасть из чехла. Дополнительное отделение позволяет носить в чехле банковские/скидочные карты и купюры в сложенном виде.
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-iphone-5-dlya-modeley-xs-max-xs-xr-8-plus-8-7-plus7-/
+-----
+name: Чехол для планшета OSTROVSKIY
+old_price: 2690
+sale: 20
+price: 2152
+description: Чехол для планшета OSTROVSKIY
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-plansheta-ostrovskiy/
+-----
+name: Футляр для наушников
+old_price: 1190
+sale: 20
+price: 952
+description: Идеальный чехол - подходит для любых наушников. Изнутри чехол мягкий, не поцарапает наушники. Изготовлен из 100% натуральной кожи.
+category: Для гаджетов
+url: https://krepkoshop.com/category/futlyar-dlya-naushnikov/
+-----
+name: Чехол для IPad #2
+old_price: 3990
+sale: 20
+price: 3192
+description: Чехол для IPad #2
+category: Для гаджетов
+url: https://krepkoshop.com/category/chyekhol-dlya-ipadipad-mini-2/
+-----
+name: Папка для Macbook VVEDENSKIY (15 дюймов)
+old_price: 7490
+sale: 20
+price: 5992
+description: Папка для Macbook VVEDENSKIY (15 дюймов)
+category: Для гаджетов
+url: https://krepkoshop.com/category/papka-dlya-macbook-vvedenskiy-15dyuymov/
+-----
+name: Чехол для iPad Pro/iPad mini #3 
+old_price: 4390
+sale: 20
+price: 3512
+description: Если вы не терпите ничего лишнего рядом со своим iPad, но всё же стремитесь сохранить его в первозданном виде, значит, этот замечательный чехол мы создали именно для вас. Приятная тёплая поверхность натуральной кожи идеально сочетается с вашим iPad.
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-ipad-proipad-mini-3-/
+-----
+name: Чехол для iPad Pro/iPad mini #4 
+old_price: 3890
+sale: 20
+price: 3112
+description: Этот замечательный чехол мы создали именно для вас. Приятная тёплая поверхность натуральной кожи идеально сочетается с вашим iPad.
+Приятным нюансом является наличие держателя для Apple Pencil (девайс всегда по рукой и надежно зафиксирован). 
+category: Для гаджетов
+url: https://krepkoshop.com/category/chekhol-dlya-ipad-proipad-mini-4-/
+-----
+name: Сумка для Macbook/Notebook by KREPKO
+old_price: 10890
+sale: 20
+price: 8712
+description: Сумка для Macbook/Notebook by KREPKO
+category: Для гаджетов
+url: https://krepkoshop.com/category/sumka-dlya-macbooknotebook-by-krepko/
+-----
+name: Набор Apple Mания
+old_price: 8990
+sale: 0
+price: 8990
+description: Набор Apple Mания
+category: Для гаджетов
+url: https://krepkoshop.com/category/351/
+-----
+name: Визитница 3-х секционная
+old_price: 3490
+sale: 0
+price: 3490
+description: Визитница 3-х секционная
+category: Визитницы
+url: https://krepkoshop.com/category/vizitnitsa-3-kh-sektsionnaya/
+-----
+name: S.KOVALEVSKAYA
+old_price: 990
+sale: 0
+price: 990
+description: S.KOVALEVSKAYA
+category: Визитницы
+url: https://krepkoshop.com/category/skovalevskaya/
+-----
+name: Визитница карманная
+old_price: 1190
+sale: 0
+price: 1190
+description: Визитница карманная
+category: Визитницы
+url: https://krepkoshop.com/category/vizitnitsa-karmannaya/
+-----
+name: Кожаный фартук для гриля Smoke
+old_price: 7999
+sale: 0
+price: 7999
+description: Стильный аксессуар выполнен из натуральной кожи. Благодаря специальной обработке после использования он легко очищается от загрязнений и жира. Эксклюзивный фартук от KREPKO подчеркнет индивидуальность своего владельца и станет отличным подарком для любого кулинара или человека любящего готовить со вкусом и ответственно подходящего к вопросу выбора качественных аксессуаров!
+category: для готовки
+url: https://krepkoshop.com/category/kozhanyy-fartuk-dlya-grilya-smoke/
+-----
+name: Набор для барбекю Well Done
+old_price: 16899
+sale: 0
+price: 16899
+description: Набор для настоящего Krepkoмана. Только тестостерон-ничего лишнего! Включает в себя различные аксессуары для самого брутального приготовления мяса.
+
+-состоит из фартука для гриля Smoke
+-скрутка для шампуров KREPKO
+-скрутка для ножей KREPKO
+-набор подставок на обеденный стол KREPKO (4 предмета)
+-набор подставок под кружки (бирдекели 6 штук)
+
+category: для готовки
+url: https://krepkoshop.com/category/nabor-dlya-barbekyu-well-done/
+-----
+name: Чехол-скрутка для шампуров
+old_price: 2990
+sale: 0
+price: 2990
+description: Прикупил шампуров к лету, возьми для них достойный аксессуар! Кожаный чехол от KREPKO, гарантировано переживет несколько наборов шампуров и будет выгодно отличать его владельца. Качество, крой, материалы-всё на высшем уровне.
+category: для готовки
+url: https://krepkoshop.com/category/chekhol-skrutka-dlya-shampurov/
+-----
+name: Чехол-скрутка для ножей
+old_price: 2990
+sale: 0
+price: 2990
+description: Стильный чехол-скрутка для ножей изготавливающийся по вашему индивидуальному заказу.
+category: для готовки
+url: https://krepkoshop.com/category/chekhol-skrutka-dlya-nozhey/
+-----
+name: Набор подставок на обеденный стол KREPKO
+old_price: 7690
+sale: 0
+price: 7690
+description: Набор подставок из натуральной кожи украсит любой обеденный стол в гостиной, создаст антураж и придаст дополнительный лоск сервировке поистине королевским блюдам. Подставки не заменимы на барбекю в загородном доме, идеальны для стола из массивных досок, не нуждаются в скатерти.
+category: для готовки
+url: https://krepkoshop.com/category/nabor-podstavok-na-obedennyy-stol-krepko/
+-----
+name: Подставка под стакан KREPKO (Бирдекель) комплект из 6 шт
+old_price: 790
+sale: 0
+price: 790
+description: Подставка под стакан KREPKO (Бирдекель) комплект из 6 шт
+category: для готовки
+url: https://krepkoshop.com/category/podstavka-pod-stakan-krepko-birdekel/
+-----
+name: Чокер Valentina
+old_price: 290
+sale: 0
+price: 290
+description: Чокер Valentina
+category: Портупеи для девушек
+url: https://krepkoshop.com/category/choker-valentina/
+-----
+name: ПОРТУПЕЯ №1
+old_price: 2990
+sale: 0
+price: 2990
+description: ПОРТУПЕЯ №1
+category: Портупеи для девушек
+url: https://krepkoshop.com/category/portupyeya-1/
+-----
+name: ПОРТУПЕЯ №7
+old_price: 4490
+sale: 0
+price: 4490
+description: ПОРТУПЕЯ №7
+category: Портупеи для девушек
+url: https://krepkoshop.com/category/portupyeya-7/
+-----
+name: ПОРТУПЕЯ №6
+old_price: 2990
+sale: 0
+price: 2990
+description: ПОРТУПЕЯ №6
+category: Портупеи для девушек
+url: https://krepkoshop.com/category/portupyeya-6/
+-----
+name: Обложка на тетрадь
+old_price: 2190
+sale: 0
+price: 2190
+description: Тетради материал расходный, а вот обложка может быть одна на все классы. Именная, которую не с кем не спутаешь. Не разорвется и не истрется. С каждым классом прибавляет в статусе. В общем мечта да и только!
+category: Для учебы
+url: https://krepkoshop.com/category/oblozhka-na-tetrad/
+-----
+name: Обложка для учебника KREPKO
+old_price: 2690
+sale: 0
+price: 2690
+description: Учебник в конце года надо сдать и/или подарить будущим поколениям, а чтобы было что передать, нужно его хранить как зеницу ока. Сохранить, да ещё и украсить портфель помогут обложки из натуральной кожи от KREPKO.
+
+category: Для учебы
+url: https://krepkoshop.com/category/oblozhka-dlya-uchebnika-krepko/
+-----
+name: Обложка на дневник KREPKO
+old_price: 2490
+sale: 0
+price: 2490
+description: Дневник-сердце ученика. Самый важный документ, который нуждается в достойной обложке, а что может быть лучше натуральной кожи, седельного шва и рук мастера?
+Верно, только сложение этих компонентов в единое целое=кожаная обложка.
+category: Для учебы
+url: https://krepkoshop.com/category/oblozhka-na-dnevnik-krepko/
+-----
+name: Обложка на студенческий билет KREPKO v.2
+old_price: 2190
+sale: 0
+price: 2190
+description: Круче чем паспорт, почти как ФСБ! Студенческий билет даёт доступ к знаниям, столовой, общежитию и закрытым вечеринкам. Символ лучших лет жизни и его надо беречь. Сохраните билет в целости и придаст индивидуальность - корочка ручной работы из натуральной кожи от KREPKO.
+category: Для учебы
+url: https://krepkoshop.com/category/oblozhka-na-studencheskiy-bilet-krepko-v2/
+-----
+name: Обложка на студенческий билет KREPKO v.1
+old_price: 1990
+sale: 0
+price: 1990
+description: Круче чем паспорт, почти как ФСБ! Студенческий билет даёт доступ к знаниям, столовой, общежитию и закрытым вечеринкам. Символ лучших лет жизни и его надо беречь. Сохраните билет в целости и придаст индивидуальность - корочка ручной работы из натуральной кожи от KREPKO.
+category: Для учебы
+url: https://krepkoshop.com/category/oblozhka-na-studencheskiy-bilet-krepko-v1/
+-----
+name: Пенал Vrubel
+old_price: 890
+sale: 0
+price: 890
+description: Пенал Vrubel
+category: Для учебы
+url: https://krepkoshop.com/category/penal-vrubel/
+-----
+name: Пенал Malevich
+old_price: 3390
+sale: 0
+price: 3390
+description: Пенал Malevich
+category: Для учебы
+url: https://krepkoshop.com/category/penal-malevich/
+-----
+name: Бумажник "Мой первый кошелек"
+old_price: 1490
+sale: 0
+price: 1490
+description: Удобный и компактный бумажник на молнии. Идеальный вариант для ребенка. Мелочь и купюры: всё в одном кармане.
+category: Для учебы
+url: https://krepkoshop.com/category/bumazhnik-moy-pervyy-koshelek/
+-----
+name: Футляр для очков TSIOLKOVSKY
+old_price: 1990
+sale: 0
+price: 1990
+description: Футляр для очков из натуральной кожи, защитит ваши очки от любых повреждений. Делаются по индивидуальному заказу именно под ваши любимые очки.
+category: Для учебы
+url: https://krepkoshop.com/category/futlyar-dlya-ochkov-tsiolkovsky/
+-----
+name: Разгрузка для фотографа KREPKO
+old_price: 4390
+sale: 0
+price: 4390
+description: Разгрузка для фотографа KREPKO
+category: для работы
+url: https://krepkoshop.com/category/razgruzka-dlya-fotografa-krepko/
+-----
+name: Сумка-пояс для флориста/декоратора
+old_price: 3890
+sale: 0
+price: 3890
+description: Сумка-пояс для флориста/декоратора
+category: для работы
+url: https://krepkoshop.com/category/sumka-poyas-dlya-floristadekoratora/
+-----
+name: Шлейка прогулочная из натуральной кожи для мелких собак и кошек
+old_price: 1490
+sale: 0
+price: 1490
+description: Шлейка прогулочная из натуральной кожи для мелких собак и кошек
+category: для животных
+url: https://krepkoshop.com/category/shleyka-progulochnaya-iz-naturalnoy-kozhi-dlya-melkikh-sobak-i-koshek/
+-----
+name: Поводок из натуральной кожи
+old_price: 1190
+sale: 0
+price: 1190
+description: Поводок из натуральной кожи
+category: для животных
+url: https://krepkoshop.com/category/povodok-iz-naturalnoy-kozhi/
+-----
+name: Ошейник с именем питомца из натуральной кожи
+old_price: 1190
+sale: 0
+price: 1190
+description: Ошейник с именем питомца из натуральной кожи
+category: для животных
+url: https://krepkoshop.com/category/osheynik-s-imenem-pitomtsa-iz-naturalnoy-kozhi/
+-----
+name: Поводок-цепь с ручкой из натуральной кожи
+old_price: 1890
+sale: 0
+price: 1890
+description: Поводок-цепь с ручкой из натуральной кожи
+category: для животных
+url: https://krepkoshop.com/category/povodok-tsep-s-ruchkoy-iz-naturalnoy-kozhi/
+-----
+name: Широкий ошейник с шипами для крупных собак
+old_price: 5490
+sale: 0
+price: 5490
+description: Ошейник из натуральной кожи для крупных собак с металлическими шипами. 
+category: для животных
+url: https://krepkoshop.com/category/shirokiy-osheynik-s-shipami-dlya-krupnykh-sobak/
+-----
+name: Ошейник из натуральной кожи без шипов (для крупных собак) 
+old_price: 1890
+sale: 0
+price: 1890
+description: Ошейник из натуральной кожи, выполненный из шорно-седельной кожи. Выкроен из чепрачной части шкуры (самая прочная часть), для того, чтобы со временем не растягивался и выдерживал самые большие нагрузки в процессе эксплуатации. Кожа на ощупь мягкая, но очень плотная. 
+category: для животных
+url: https://krepkoshop.com/category/osheynik-iz-naturalnoy-kozhi-bez-shipov-dlya-krupnykh-sobak-/
+-----
+name: Поводок-цепь с ручкой из натуральной кожи (для 
+old_price: 3290
+sale: 0
+price: 3290
+description: Поводок-цепь с ручкой из натуральной кожи (для 
+category: для животных
+url: https://krepkoshop.com/category/povodok-tsep-s-ruchkoy-iz-naturalnoy-kozhi-dlya-/
