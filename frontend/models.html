@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/switchbase.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-vue/bootstrap-vue.min.css">
+    <script src="js/vue/vue.min.js"></script>
+    <script src="js/vue/bootstrap-vue.min.js"></script>
+    <script src="js/vue/bootstrap-vue-icons.min.js"></script>
+  </head>
+  <body class="bg-light">
+    <div id="models" >
+      <div>
+        <b-navbar type="light">
+          <b-navbar-brand href="/">SwitchBase</b-navbar-brand>
+      
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <b-nav-item href="/multiconsole.html" active>Multiconsole</b-nav-item>
+              <b-nav-item href="/models.html" active>Models</b-nav-item>
+              <b-nav-item-dropdown
+              text="Service"
+              >
+              <b-dropdown-item v-on:click ="EditModel()">
+                Редактировать модель
+              </b-dropdown-item>
+              <b-dropdown-item v-on:click ="DeleteModel()">
+                Удалить модель
+              </b-dropdown-item>  
+            </b-nav-item-dropdown>
+          </b-navbar-nav>      
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+              <b-nav-form>
+                <b-form-input class="app-form-control" placeholder="Search" v-model="search"></b-form-input>
+              </b-nav-form>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </div>
+      <div>
+        <b-table striped outlined small hover
+        selectable
+        ref="selectableTable"
+        :select-mode="selectMode" 
+        :head-variant="headVariant" 
+        :current-page="currentPage"
+        :per-page="perPage"
+        :items="models" 
+        :fields="all_fields"
+        sort-by="model"
+        :filter="search"
+        @filtered="onFiltered"
+        @row-selected="onRowSelected">
+          <template v-slot:cell(index)="data">
+            {{ (data.index + 1) + (currentPage-1)*perPage}}
+          </template>
+          <template v-slot:cell(ios)="data">
+            <b-form-input size="sm" type="text" v-model="data.item.ios">{{}}</b-form-input>
+          </template>
+          <template v-slot:cell(power)="data">
+            <b-form-input size="sm" type="number" v-model="data.item.power"></b-form-input>
+          </template>
+          <template v-slot:cell(selected)="{ rowSelected }">
+            <template v-if="rowSelected">
+              <span aria-hidden="true">&check;</span>
+              <span class="sr-only">Selected</span>
+            </template>
+            <template v-else>
+              <span aria-hidden="true">&nbsp;</span>
+              <span class="sr-only">Not selected</span>
+            </template>
+          </template>
+        </b-table>
+        <p>
+          <b-pagination
+          v-model="currentPage"
+          pills
+          :total-rows="totalRows"
+          :per-page="perPage"
+          limit=10
+          align="center"
+          size="md"
+          class="my-0"
+          first-number
+          last-number
+        ></b-pagination>
+          </p>
+        <p>
+          <b-button size="sm" @click="selectAllRows">Select all</b-button>
+          <b-button size="sm" @click="clearSelected">Clear selected</b-button>
+          {{selected}}
+        </p>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <script src="js/models.js"></script>
+  </footer>
+</html>

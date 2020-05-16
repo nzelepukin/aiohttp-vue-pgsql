@@ -2,7 +2,7 @@ import json,datetime
 from marshmallow import Schema, fields
 from marshmallow.validate import Range, Length, ValidationError
 
-class NewSwitchSchema(Schema):
+class SwitchSchema(Schema):
     id =fields.Int(validate=Range(0,100000),required=True)
     hostname = fields.Str(validate=Length(0,50))
     serial_n = fields.Str(validate=Length(1,30))
@@ -22,10 +22,24 @@ class NewSwitchSchema(Schema):
     device_type = fields.Str(validate=Length(0,30))
     power = fields.Int(validate=Range(0,10000))
 
+class ModelSchema(Schema):
+    id =fields.Int(validate=Range(0,100000),required=True)
+    model = fields.Str(validate=Length(0,50))
+    ios = fields.Str(validate=Length(0,100))
+    power = fields.Int(validate=Range(0,10000))
+
+def check_model_params(model):
+    try:
+        model = check_type(model)
+        ModelSchema().loads(json.dumps(model))
+        return {'status': True,'output': model}
+    except ValidationError as err:
+        return {'status': False,'output':[field for field in err.messages]}
+        
 def check_params(device):
     try:
         device = check_type(device)
-        NewSwitchSchema().loads(json.dumps(device))
+        SwitchSchema().loads(json.dumps(device))
         return {'status': True,'output': device}
     except ValidationError as err:
         return {'status': False,'output':[field for field in err.messages]}

@@ -9,7 +9,8 @@ def xls_to_base(fname:str)->list:
         .dropna(how='all'))
     result_list = df.to_dict('records')
     for each in result_list:
-        each=str(each).strip()
+        for param in each:
+            each[param]=str(each[param]).strip()            
         if not each['power'].isdigit():
             each['power']=0
     return result_list

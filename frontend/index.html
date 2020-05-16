@@ -19,6 +19,7 @@
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
               <b-nav-item href="/multiconsole.html" active>Multiconsole</b-nav-item>
+              <b-nav-item href="/models.html" active>Models</b-nav-item>
               <b-nav-item-dropdown
               text="Service"
               >
@@ -131,7 +132,7 @@
         :per-page="perPage"
         :items="switches" 
         :fields="switches_fields"
-        default-sort="switches.place" 
+        sort-by="ip" 
         :filter="search"
         @filtered="onFiltered"
         @row-selected="onRowSelected">

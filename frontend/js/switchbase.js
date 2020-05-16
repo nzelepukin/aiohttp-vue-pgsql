@@ -10,25 +10,25 @@ var app = new Vue({
 		totalRows: 1,
 		perPage: 20,
 		all_fields: [
-			{key: 'index',label: '#', type: 'service'},
-			{key: 'protocol',label: 'Протокол',type: 'select',default_value: '',sortable: true},
-			{key: 'ip',label: 'IP адрес', type: 'select',default_value: '',sortable: true},
-            {key: 'hostname',label: 'Имя', type: 'select',default_value: ''},
-            {key: 'serial',label: 'Серийный номер', type: 'select',default_value: ''},
-			{key: 'model',label: 'Модель', type: 'select', default_value: '', sortable: true},
-			{key: 'dev_ios',label: 'Версия ПО', type: 'select',default_value: '', sortable: true},
-			{key: 'description',label: 'Описание', type: 'select',default_value: ''},			
-			{key: 'project',label: 'Проект', type: 'select', default_value: '',sortable: true},	
-			{key: 'in_date',label: 'Дата ввода', type: 'date', default_value: '01.01.1900',sortable: true},
-			{key: 'power',label: 'Мощность', type: 'service'},
-			{key: 'power_type',label: 'Эл. питание',type: 'select', default_value: '', sortable: true},
-			{key: 'type',label: 'Тип', type: 'select',default_value: ''},			
-			{key: 'place',label: 'Объект', type: 'select',default_value: '',sortable: true},
-            {key: 'building',label: 'Здание', type: 'select',default_value: ''},
-			{key: 'room',label: 'Комната', type: 'select',default_value: ''},	
-			{key: 'selected',label: '', type: 'service'}		        
+			{key: 'index',label: '#', type: 'service', count: 1},
+			{key: 'protocol',label: 'Протокол',type: 'select',default_value: '',sortable: true, count: 2},
+			{key: 'ip',label: 'IP адрес', type: 'select',default_value: '',sortable: true, count: 3},
+            {key: 'hostname',label: 'Имя', type: 'select',default_value: '', count: 4},
+            {key: 'serial',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
+			{key: 'model',label: 'Модель', type: 'select', default_value: '', sortable: true, count: 6},
+			{key: 'dev_ios',label: 'Версия ПО', type: 'select',default_value: '', sortable: true, count: 7},
+			{key: 'description',label: 'Описание', type: 'select',default_value: '', count: 8},			
+			{key: 'project',label: 'Проект', type: 'select', default_value: '',sortable: true, count: 9},	
+			{key: 'in_date',label: 'Дата ввода', type: 'date', default_value: '01.01.1900',sortable: true, count: 10},
+			{key: 'power',label: 'Мощность', type: 'service', count: 11},
+			{key: 'power_type',label: 'Эл. питание',type: 'select', default_value: '', sortable: true, count: 12},
+			{key: 'type',label: 'Тип', type: 'select',default_value: '', count: 13},			
+			{key: 'place',label: 'Объект', type: 'select',default_value: '',sortable: true, count: 14},
+            {key: 'building',label: 'Здание', type: 'select',default_value: '', count: 15},
+			{key: 'room',label: 'Комната', type: 'select',default_value: '', count: 16},	
+			{key: 'selected',label: '', type: 'service', count: 100}		        
 	],
-		switches_fields: [],
+		switches_fields: [ ],
 		selected: [],
 		switches: [],
 		editParameters: [],
@@ -37,14 +37,14 @@ var app = new Vue({
 	created: 
 		function() {
 			this.switches_fields=[
-				{key: 'index',label: '#'},
-				{key: 'ip',label: 'IP адрес',sortable: true},
-				{key: 'hostname',label: 'Имя'},
-				{key: 'serial',label: 'Серийный номер'},
-				{key: 'model',label: 'Модель',sortable: true},
-				{key: 'dev_ios',label: 'Версия ПО',sortable: true},
-				{key: 'place',label: 'Объект',sortable: true},
-				{key: 'selected',label: ''}		        
+				{key: 'index',label: '#', type: 'service', count: 1},
+				{key: 'ip',label: 'IP адрес', type: 'select',default_value: '',sortable: true, count: 3},
+				{key: 'hostname',label: 'Имя', type: 'select',default_value: '', count: 4},
+				{key: 'serial',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
+				{key: 'model',label: 'Модель', type: 'select', default_value: '', sortable: true, count: 6},
+				{key: 'dev_ios',label: 'Версия ПО', type: 'select',default_value: '', sortable: true, count: 7},
+				{key: 'place',label: 'Объект', type: 'select',default_value: '',sortable: true, count: 14},
+				{key: 'selected',label: '', type: 'service', count: 100}	        
 		];
 			fetch(this.url+'switch/', {
 				mode : "no-cors", 
@@ -57,17 +57,13 @@ var app = new Vue({
 	},
 
 	methods: {
-		snmpinfo: function() {
-			var ip_array = [];
-			this.selected.forEach(element => {
-				ip_array.push({id: element.id, ip: element.ip})
-			})
-			console.log(JSON.stringify(ip_array));
+		snmpinfo() {
+			console.log(JSON.stringify(this.selected));
 			fetch(this.url+"snmpinfo/", {
 				mode : "no-cors", 
 				method : "POST",
 				headers : {"Content-Type" : "application/json; charset=utf-8"},
-				body : JSON.stringify(ip_array)
+				body : JSON.stringify(this.selected)
 			}
 			).then(response => response.json()).then(data => { 
 				console.log(data); 
@@ -79,7 +75,7 @@ var app = new Vue({
 			})
 
 		},	
-		handleFileUpload:function(){
+		handleFileUpload(){
 			this.file = this.$refs.file.files[0];
 			console.log(this.file);
 			this.importState="Загрузка файла ..."
@@ -206,6 +202,16 @@ var app = new Vue({
 			this.totalRows = filteredItems.length
 			this.currentPage = 1
 		  },
+		compare: function(a, b) {
+			if (a.count > b.count) {
+			  return 1;
+			}
+			if (a.count < b.count) {
+			  return -1;
+			}
+			// a должно быть равным b
+			return 0;
+		  }
 	},
 	computed: {
 

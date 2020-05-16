@@ -17,8 +17,13 @@ engine=create_engine(db_url,encoding='UTF8')
 Base = declarative_base()
 metadata = MetaData()
 from model import IPbase, Model, Places, Switch, Service, SwitchType, PowerType, Protocol, Buildings, Rooms, Projects
-Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
+
+def pg_create_db()->None:
+    Base.metadata.create_all(engine)
+
+def pg_wipe_db()->None:
+    Base.metadata.drop_all(engine)
 
 def pg_init_db()->None:
     ''' Set default values for tables Places, Model, Ip if they doesnt exist'''
@@ -49,9 +54,6 @@ def pg_init_db()->None:
         session.add(db_protocol)  
     session.commit()
     session.close()
-
-def pg_wipe_db()->None:
-    Base.metadata.drop_all(engine)
 
 def pg_add_device( 
             hostname = 'none',
@@ -148,7 +150,7 @@ def pg_delete_device(params_dict:dict )->None:
     session.close()
     return output
 
-def pg_select_all()->dict:
+def pg_select_all()->list:
     session = Session()
     result=list()
     db = session.query(Switch).all()
@@ -198,3 +200,83 @@ def pg_check_model(model, dev_ios, power,session):
         session.add(Model(model=model, ios=dev_ios, power=power))
         session.commit   
     return session.query(Model).filter(Model.model==model).one()
+
+def pg_select_models()->list:
+    session = Session()
+    db_models = session.query(Model).all()
+    output = [{'id':db_model.id, 'model':db_model.model, 'ios':db_model.ios, 'power':db_model.power} for db_model in db_models]
+    session.close
+    return output
+
+
+def pg_delete_model(params_dict:dict)->str:
+    session = Session()
+    if session.query(Model).filter(Model.id==params_dict['id']).scalar():
+        db_model=session.query(Model).filter(Model.id==params_dict['id']).one()
+        session.delete(db_model)
+        output = "Model deleted"
+    else:
+        output = "Can't find this model in base"
+    session.commit()
+    session.close()
+    return output
+
+def pg_edit_model(params_dict:dict)->str:
+    session = Session()
+    if session.query(Model).filter(Model.id==params_dict['id']).scalar():
+        db_model=session.query(Model).filter(Model.id==params_dict['id']).one()
+        for param in params_dict:
+            if param== 'model' : db_model.model=params_dict['model']
+            if param==  'power': db_model.power=params_dict['power']
+            if param == 'ios': db_model.ios=params_dict['ios']
+        output = "Model {} {} {} edited".format(db_model.model,db_model.ios,db_model.power)
+    else:
+        output = "Can't find this model in base"
+    session.commit()
+    session.close()
+    return output
+
+def pg_select_one(param:str,value:str)->dict:
+    session = Session()
+    if session.query(Switch).filter(eval('Switch.'+param)==value).scalar():
+        switch = session.query(Switch).filter(eval('Switch.'+param)==value).one()
+        db_ip=session.query(IPbase).filter(IPbase.id==switch.ip_id).one()
+        db_model = session.query(Model).filter(Model.id==switch.model_id).one()
+        db_project = session.query(Projects).filter(Projects.id==switch.project_id).one()
+        db_place = session.query(Places).filter(Places.id==switch.place_id).one()
+        db_building = session.query(Buildings).filter(Buildings.id==switch.building_id).one()
+        db_room = session.query(Rooms).filter(Rooms.id==switch.room_id).one()
+        db_protocol = session.query(Protocol).filter(Protocol.id==switch.protocol_id).one()
+        db_device_type = session.query(SwitchType).filter(SwitchType.id==switch.type_id).one()
+        db_power_type = session.query(PowerType).filter(PowerType.id==switch.power_type_id).one()        
+        switch_dict = {
+            'id': switch.id,
+            'protocol': db_protocol.protocol,
+            'ip': db_ip.ipaddr,
+            'hostname': switch.hostname,
+            'model': db_model.model,
+            'serial_n': switch.serial_n,
+            'dev_ios': switch.dev_ios,
+            'rec_ios': db_model.ios,
+            'inv_n': switch.inv_n,
+            'nom_n': switch.nom_n,
+            'project': db_project.project,
+            'in_date': switch.in_date.strftime('%d.%m.%Y'),
+            'description': switch.description,
+            'power': db_model.power,
+            'power_type': db_power_type.power_type,
+            'type':db_device_type.device_type,
+            'place': db_place.place,
+            'building': db_building.building,
+            'room': db_room.room            
+            } 
+        output={'status':True, 'output':switch_dict}
+    else:
+        output={'status':False}
+    session.close()   
+    return output
+
+
+
+
+
