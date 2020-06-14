@@ -10,9 +10,9 @@
   </head>
   <body class="bg-light">
     <div id="models" >
-      <div>
+      <div id="device-head">
         <b-navbar type="light">
-          <b-navbar-brand href="/">SwitchBase</b-navbar-brand>
+          <b-navbar-brand href="/index.html">SwitchBase</b-navbar-brand>
       
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       
@@ -58,7 +58,7 @@
             {{ (data.index + 1) + (currentPage-1)*perPage}}
           </template>
           <template v-slot:cell(ios)="data">
-            <b-form-input size="sm" type="text" v-model="data.item.ios">{{}}</b-form-input>
+            <b-form-input size="sm" type="text" v-model="data.item.rec_ios">{{}}</b-form-input>
           </template>
           <template v-slot:cell(power)="data">
             <b-form-input size="sm" type="number" v-model="data.item.power"></b-form-input>

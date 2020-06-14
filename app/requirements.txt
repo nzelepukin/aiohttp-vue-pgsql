@@ -2,8 +2,12 @@ aiohttp
 aiosnmp
 sqlalchemy
 psycopg2-binary
-redis
+aioredis
 netdev
 pandas
 xlrd
 marshmallow
+asyncpgsa
+aiohttp_session
+aiohttp_apispec
+alembic

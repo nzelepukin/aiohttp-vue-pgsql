@@ -1,282 +1,237 @@
-import time,redis,os,datetime
-from sqlalchemy import Table, Column,DateTime, Integer, String, Float,LargeBinary, MetaData, ForeignKey, engine, create_engine,Unicode
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker,relationship
-
-try:
-    with open('/run/secrets/postgres_user') as usr_file:
-        pg_usr=usr_file.read().strip()
-    with open('/run/secrets/postgres_password') as pwd_file:
-        pg_pwd=pwd_file.read().strip()
-    with open('/run/secrets/postgres_db') as db_file:
-        pg_db=db_file.read().strip()
-except: 
-    raise Exception ('Cant find user, password, db secrets.')
-db_url='postgres://{}:{}@db-pgsql:5432/{}'.format(pg_usr,pg_pwd,pg_db)
-engine=create_engine(db_url,encoding='UTF8')
-Base = declarative_base()
-metadata = MetaData()
-from model import IPbase, Model, Places, Switch, Service, SwitchType, PowerType, Protocol, Buildings, Rooms, Projects
-Session = sessionmaker(bind=engine)
-
-def pg_create_db()->None:
-    Base.metadata.create_all(engine)
-
-def pg_wipe_db()->None:
-    Base.metadata.drop_all(engine)
-
-def pg_init_db()->None:
-    ''' Set default values for tables Places, Model, Ip if they doesnt exist'''
-    session=Session()
-    if not session.query(IPbase).filter(IPbase.ipaddr=='none').scalar():
-        db_ip = IPbase( ipaddr='none')
-        session.add(db_ip)
-    if not session.query(Model).filter(Model.model=='none').scalar():
-        db_model = Model(model='none', ios='none', power=0)
-        session.add(db_model)
-    if not session.query(Places).filter(Places.place=='none').scalar():    
-        db_place =  Places(place = 'none')
-        session.add(db_place)
-    if not session.query(Buildings).filter(Buildings.building=='none').scalar():    
-        db_building =  Buildings(building = 'none')
-        session.add(db_building)
-    if not session.query(Rooms).filter(Rooms.room=='none').scalar():    
-        db_room =  Rooms(room = 'none')
-        session.add(db_room) 
-    if not session.query(SwitchType).filter(SwitchType.device_type=='none').scalar():
-        db_device_type =  SwitchType(device_type = 'none')
-        session.add(db_device_type)
-    if not session.query(PowerType).filter(PowerType.power_type=='none').scalar():
-        db_power_type =  PowerType(power_type = 'none')
-        session.add(db_power_type)
-    if not session.query(Protocol).filter(Protocol.protocol=='none').scalar():
-        db_protocol =  Protocol(protocol = 'none')
-        session.add(db_protocol)  
-    session.commit()
-    session.close()
-
-def pg_add_device( 
-            hostname = 'none',
-            serial_n = 'none',
-            dev_ios = 'none',
-            inv_n = 'none',
-            nom_n = 'none',
-            project = 'none',
-            in_date = '01.01.1900',
-            model = 'none',
-            place = 'none',
-            building = 'none',
-            room = 'none',
-            ip = 'none',
-            protocol = 'none',
-            description = 'none',
-            power_type = 'none',
-            device_type = 'none',
-            power = 0) ->str:
-    ''' Get parameters of device and create new device record in Postgres DB '''
-    session = Session() 
-    db_model = pg_check_model(model, dev_ios, power,session)
-    db_project = pg_check_param('Projects','project',project, session)
-    db_place = pg_check_param('Places','place',place, session)
-    db_building = pg_check_param('Buildings','building',building, session)
-    db_room = pg_check_param('Rooms','room',room, session)
-    db_ip = pg_check_param('IPbase','ipaddr',ip, session)
-    db_device_type = pg_check_param('SwitchType','device_type',device_type, session)
-    db_power_type = pg_check_param('PowerType','power_type',power_type, session)
-    db_protocol = pg_check_param('Protocol','protocol',protocol, session)
-    db_switch = Switch( 
-        hostname = hostname,
-        serial_n = serial_n,
-        dev_ios = dev_ios,
-        inv_n = inv_n,
-        nom_n = nom_n,
-        project_id = db_project.id,
-        in_date = datetime.datetime.strptime(in_date,"%d.%m.%Y"),
-        description = description,
-        protocol_id = db_protocol.id,
-        power_type_id = db_power_type.id,
-        type_id = db_device_type.id,
-        model_id = db_model.id,
-        place_id = db_place.id,
-        building_id = db_building.id,
-        room_id = db_room.id,
-        ip_id = db_ip.id )    
-    session.add(db_switch)
-    session.commit()
-    session.close()
-    return 'Added new device S/N - {}'.format(serial_n)
-
-def pg_edit_device(params_dict:dict )->None:
-    session = Session()
-    if session.query(Switch).filter(Switch.id==params_dict['id']).scalar():
-        db_switch=session.query(Switch).filter(Switch.id==params_dict['id']).one()
-        for param in params_dict:
-            if param == 'id': pass
-            elif param in ['hostname', 'serial_n', 'dev_ios', 'inv_n', 'nom_n', 'description']:
-                setattr(db_switch,param,params_dict[param])
-            elif param == 'ip': 
-                db_switch.ip_id = pg_check_param('IPbase','ipaddr',params_dict['ip'], session).id
-            elif 'model' in params_dict :
-                db_switch.model_id = pg_check_model(params_dict['model'], 'none', 0,session).id
-            elif param == 'place':
-                db_switch.place_id = pg_check_param('Places','place',params_dict['place'], session).id
-            elif param == 'building':
-                db_switch.building_id = pg_check_param('Buildings','building',params_dict['building'], session).id
-            elif param == 'room':
-                db_switch.room_id = pg_check_param('Rooms','room',params_dict['room'], session).id
-            elif param == 'protocol':
-                db_switch.protocol_id = pg_check_param('Protocol','protocol',params_dict['protocol'], session).id
-            elif param == 'project':
-                db_switch.project_id = pg_check_param('Projects','project',params_dict['project'], session).id
-            elif param == 'power_type':
-                db_switch.power_type_id = pg_check_param('PowerType','power_type',params_dict['power_type'], session).id
-            elif param == 'device_type':
-                db_switch.type_id = pg_check_param('SwitchType','device_type',params_dict['device_type'], session).id
-        session.commit()
-        session.close()
-        print ('Renew device with id - {}'.format(params_dict['id']))
-    else:
-        print ('Failed to renew device, no such id')
-
-def pg_delete_device(params_dict:dict )->None:
-    session = Session()
-    if session.query(Switch).filter(Switch.id==params_dict['id']).scalar():
-        db_switch=session.query(Switch).filter(Switch.id==params_dict['id']).one()
-        session.delete(db_switch)
-        output = "Device deleted"
-    else:
-        output = "Can't find this device in base"
-    session.commit()
-    session.close()
-    return output
-
-def pg_select_all()->list:
-    session = Session()
-    result=list()
-    db = session.query(Switch).all()
-    for switch in db:
-        db_ip=session.query(IPbase).filter(IPbase.id==switch.ip_id).one()
-        db_model = session.query(Model).filter(Model.id==switch.model_id).one()
-        db_project = session.query(Projects).filter(Projects.id==switch.project_id).one()
-        db_place = session.query(Places).filter(Places.id==switch.place_id).one()
-        db_building = session.query(Buildings).filter(Buildings.id==switch.building_id).one()
-        db_room = session.query(Rooms).filter(Rooms.id==switch.room_id).one()
-        db_protocol = session.query(Protocol).filter(Protocol.id==switch.protocol_id).one()
-        db_device_type = session.query(SwitchType).filter(SwitchType.id==switch.type_id).one()
-        db_power_type = session.query(PowerType).filter(PowerType.id==switch.power_type_id).one()        
-        switch_dict = {
-            'id': switch.id,
-            'protocol': db_protocol.protocol,
-            'ip': db_ip.ipaddr,
-            'hostname': switch.hostname,
-            'model': db_model.model,
-            'serial': switch.serial_n,
-            'dev_ios': switch.dev_ios,
-            'rec_ios': db_model.ios,
-            'inv_n': switch.inv_n,
-            'nom_n': switch.nom_n,
-            'project': db_project.project,
-            'in_date': switch.in_date.strftime('%d.%m.%Y'),
-            'description': switch.description,
-            'power': db_model.power,
-            'power_type': db_power_type.power_type,
-            'type':db_device_type.device_type,
-            'place': db_place.place,
-            'building': db_building.building,
-            'room': db_room.room            
-            }
-        result.append(switch_dict) 
-    session.close()   
-    return result        
-
-def pg_check_param(table,fieldname,value,session):
-    if not session.query(eval(table)).filter(eval(table+'.'+fieldname)==value).scalar():
-        session.add(eval('{}({}="{}")'.format(table,fieldname,value)))
-        session.commit 
-    return session.query(eval(table)).filter(eval(table+'.'+fieldname)==value).one()
-
-def pg_check_model(model, dev_ios, power,session):
-    if not session.query(Model).filter(Model.model==model).scalar():
-        session.add(Model(model=model, ios=dev_ios, power=power))
-        session.commit   
-    return session.query(Model).filter(Model.model==model).one()
-
-def pg_select_models()->list:
-    session = Session()
-    db_models = session.query(Model).all()
-    output = [{'id':db_model.id, 'model':db_model.model, 'ios':db_model.ios, 'power':db_model.power} for db_model in db_models]
-    session.close
-    return output
+import time,aioredis,os,datetime, logging
+from asyncpgsa import PG 
+from asyncpg import UniqueViolationError
+from aiohttp.web_urldispatcher import View
+from sqlalchemy import Table, Column,DateTime, Integer, String, Float, LargeBinary, join
+from sqlalchemy import exists, select, update, delete, MetaData, ForeignKey, engine, create_engine,Unicode
+from sqlalchemy.sql import and_
+from model import user_table, base_table, model_table
+import logging
 
 
-def pg_delete_model(params_dict:dict)->str:
-    session = Session()
-    if session.query(Model).filter(Model.id==params_dict['id']).scalar():
-        db_model=session.query(Model).filter(Model.id==params_dict['id']).one()
-        session.delete(db_model)
-        output = "Model deleted"
-    else:
-        output = "Can't find this model in base"
-    session.commit()
-    session.close()
-    return output
-
-def pg_edit_model(params_dict:dict)->str:
-    session = Session()
-    if session.query(Model).filter(Model.id==params_dict['id']).scalar():
-        db_model=session.query(Model).filter(Model.id==params_dict['id']).one()
-        for param in params_dict:
-            if param== 'model' : db_model.model=params_dict['model']
-            if param==  'power': db_model.power=params_dict['power']
-            if param == 'ios': db_model.ios=params_dict['ios']
-        output = "Model {} {} {} edited".format(db_model.model,db_model.ios,db_model.power)
-    else:
-        output = "Can't find this model in base"
-    session.commit()
-    session.close()
-    return output
-
-def pg_select_one(param:str,value:str)->dict:
-    session = Session()
-    if session.query(Switch).filter(eval('Switch.'+param)==value).scalar():
-        switch = session.query(Switch).filter(eval('Switch.'+param)==value).one()
-        db_ip=session.query(IPbase).filter(IPbase.id==switch.ip_id).one()
-        db_model = session.query(Model).filter(Model.id==switch.model_id).one()
-        db_project = session.query(Projects).filter(Projects.id==switch.project_id).one()
-        db_place = session.query(Places).filter(Places.id==switch.place_id).one()
-        db_building = session.query(Buildings).filter(Buildings.id==switch.building_id).one()
-        db_room = session.query(Rooms).filter(Rooms.id==switch.room_id).one()
-        db_protocol = session.query(Protocol).filter(Protocol.id==switch.protocol_id).one()
-        db_device_type = session.query(SwitchType).filter(SwitchType.id==switch.type_id).one()
-        db_power_type = session.query(PowerType).filter(PowerType.id==switch.power_type_id).one()        
-        switch_dict = {
-            'id': switch.id,
-            'protocol': db_protocol.protocol,
-            'ip': db_ip.ipaddr,
-            'hostname': switch.hostname,
-            'model': db_model.model,
-            'serial_n': switch.serial_n,
-            'dev_ios': switch.dev_ios,
-            'rec_ios': db_model.ios,
-            'inv_n': switch.inv_n,
-            'nom_n': switch.nom_n,
-            'project': db_project.project,
-            'in_date': switch.in_date.strftime('%d.%m.%Y'),
-            'description': switch.description,
-            'power': db_model.power,
-            'power_type': db_power_type.power_type,
-            'type':db_device_type.device_type,
-            'place': db_place.place,
-            'building': db_building.building,
-            'room': db_room.room            
-            } 
-        output={'status':True, 'output':switch_dict}
-    else:
-        output={'status':False}
-    session.close()   
-    return output
 
 
+async def setup_pg(app) -> PG:
+    db_url='postgresql://{}:{}@{}/devices'.format(
+        os.environ['POSTGRESUSER'], 
+        os.environ['POSTGRESPASS'],
+        os.environ['POSTGRESHOST'])
+    logging.info('Connecting to POSTGRES database')
+
+    app['pg'] = PG()
+    await app['pg'].init(
+        str(db_url),
+        min_size=1,
+        max_size=30
+    )
+    await app['pg'].fetchval('SELECT 1')
+    logging.info('Connected to POSTGRES database')
+
+    try:
+        yield
+    finally:
+        logging.info('Disconnecting from POSTGRES database')
+        await app['pg'].pool.close()
+        logging.info('Disconnected from POSTGRES database')
+
+async def pg_add_user(view: View, user: dict) ->dict:
+    logging.info('BEGIN: Add user '+user['username'])
+    try:
+        query_insert = user_table.insert().values(**user)
+        async with view.pg.transaction() as conn:
+            await conn.execute(query_insert) 
+        logging.info('FINISH: Add user '+user['username'])
+        return {'status':True,'output':'User {} added'.format(user['username'])}
+    except UniqueViolationError:
+        return {'status':False,'output':'User {} already in base'.format(user['username'])}
+
+async def pg_edit_user(view: View, user):
+    id=user['username']
+    logging.info('BEGIN: Edit user '+user['username'])
+    query = user_table.update().values(
+        **user).where( user_table.c.username == id)
+    async with view.pg.transaction() as conn:
+        await conn.execute(query) 
+    logging.info('FINISH: Edit user '+user['username'])
+    return {'status':True,'output':'User successfully edited'}
+
+async def pg_delete_user(view: View, username):
+    logging.info('BEGIN: Delete user '+username)
+    query = user_table.delete().where( user_table.c.username == username)
+    query_select = select([user_table]).where(user_table.c.username == username)
+    if await view.pg.fetchval(query_select):
+        await view.pg.execute(query)
+        logging.info('FINISH: Delete user '+username)
+        return {'status':True,'output':'User deleted'}
+    else: return {'status':False,'output':'No such user in database'}
+
+async def pg_check_user(view:View,user)->dict:
+    query = select([
+            exists().where(and_(user_table.c.username == user['username'], 
+            user_table.c.password == user['password']))
+        ])
+    query2= select([user_table]).where(
+        and_(
+            user_table.c.username == user['username'], 
+            user_table.c.password == user['password']))
+    diag=await view.pg.fetchval(query)
+    if not diag: 
+        return {'status':False}
+    else: 
+        output=await view.pg.fetchrow(query2)
+        return {'status':True,'output':output[0]}
+
+async def pg_select_user_by_id(pg,user_id):
+    query = select([
+            exists().where(user_table.c.user_id == user_id)
+        ])
+    query2= select([user_table]).where(user_table.c.user_id == user_id)
+    if not await pg.fetchval(query): output={'status':False}
+    else: 
+        output=await pg.fetchrow(query2)
+        return {'username': output['username'],
+                'password': output['password'],
+                'role': output['role'],
+                'firstname':output['firstname'],
+                'lastname':output['lastname'],
+                'email':output['email']
+                }
+
+async def pg_select_users(view:View)->dict:
+    query= select([user_table])
+    records=await view.pg.fetch(query)
+    output=[ {
+        'user_id':record[0],
+        'username':record[1],
+        'role':record[3],
+        'firstname':record[4],
+        'lastname':record[5],
+        'email':record[6]} for record in records]
+    return {'status':True,'output':output}
+
+
+async def pg_add_model(view: View, model: dict) ->dict:
+    logging.info('BEGIN: Add model '+model['model'])
+    try:
+        query_insert = model_table.insert().values(**model)
+        async with view.pg.transaction() as conn:
+            await conn.execute(query_insert) 
+        logging.info('FINISH: Add model '+model['model'])
+        return {'status':True,'output':'Model {} added'.format(model['model'])}
+    except UniqueViolationError:
+        return {'status':False,'output':'Model {} already in base'.format(model['model'])}
+
+async def pg_edit_model(view: View, model):
+    id=model['model_id']
+    logging.info('BEGIN: Edit model {}'.format(id)) 
+    query = model_table.update().values(
+        **model
+        ).where( model_table.c.model_id == id)
+    async with view.pg.transaction() as conn:
+        await conn.execute(query) 
+    logging.info('FINISH: Edit model {}'.format(id))
+    return {'status':True,'output':'Model successfully edited'}
+
+async def pg_delete_model(view: View, model):
+    logging.info('BEGIN: Delete model ()'.format(model))
+    query = model_table.delete().where( model_table.c.model_id == model)
+    query_select = select([model_table]).where(model_table.c.model_id == model)
+    if await view.pg.fetchval(query_select):
+        await view.pg.execute(query)
+        logging.info('FINISH: Delete model {}'.format(model))
+        return {'status':True,'output':'model deleted'}
+    else: return {'status':False,'output':'No such model in database'}
+
+async def pg_check_model(view:View,model)->dict:
+    query = select([exists().where(model_table.c.model == model)])
+    query2= select([model_table]).where(model_table.c.model == model)
+    diag=await view.pg.fetchval(query)
+    if not diag: 
+        return {'status':False}
+    else: 
+        output=await view.pg.fetchrow(query2)
+        return {'status':True,'output':output}
+
+async def pg_select_models(view:View)->dict:
+    query= select([model_table])
+    records=await view.pg.fetch(query)
+    output=[ {
+        'model_id':record[0],
+        'model':record[1],
+        'rec_ios':record[2],
+        'power':record[3]} for record in records]
+    return {'status':True,'output':output}
+
+
+async def pg_add_device(view: View, device: dict) ->dict:
+    if device['hostname']=='none': device['hostname'] = device['ip']
+    logging.info('BEGIN: Add device '+device['hostname'])
+    try:
+        query_insert = base_table.insert().values(**device)
+        async with view.pg.transaction() as conn:
+            await conn.execute(query_insert) 
+        logging.info('FINISH: Add device '+device['hostname'])
+        return {'status':True,'output':'Device {} added'.format(device['hostname'])}
+    except:
+        return {'status':False,'output':'Device {} already in base'.format(device['hostname'])}
+
+async def pg_edit_device(view: View, device):
+    id=device['dev_id']
+    logging.info('BEGIN: Edit device {}'.format(id)) 
+    query = base_table.update().values(
+        **device
+        ).where( base_table.c.dev_id == id)
+    async with view.pg.transaction() as conn:
+        await conn.execute(query) 
+    logging.info('FINISH: Edit device {}'.format(id))
+    return {'status':True,'output':'Device successfully edited'}
+
+async def pg_delete_device(view: View, device):
+    logging.info('BEGIN: Delete device {}'.format(device))
+    query = base_table.delete().where( base_table.c.dev_id == device)
+    query_select = select([base_table]).where(base_table.c.dev_id == device)
+    if await view.pg.fetchval(query_select):
+        await view.pg.execute(query)
+        logging.info('FINISH: Delete device {}'.format(device))
+        return {'status':True,'output':'device deleted'}
+    else: return {'status':False,'output':'No such device in database'}
+
+async def pg_check_device(view:View,device)->dict:
+    query = select([exists().where(base_table.c.device == device)])
+    query2= select([base_table]).where(base_table.c.device == device)
+    diag=await view.pg.fetchval(query)
+    if not diag: 
+        return {'status':False}
+    else: 
+        output=await view.pg.fetchrow(query2)
+        return {'status':True,'output':output}
+
+async def pg_select_devices(view:View)->dict:
+    query= select([base_table.join(model_table, base_table.c.model_id == model_table.c.model_id)])
+    records=await view.pg.fetch(query)
+    output=[ 
+        {
+            'dev_id':record[0],
+            'hostname':record[1],
+            'serial_n':record[2],
+            'dev_ios':record[3],
+            'inv_n':record[4],
+            'nom_n':record[5],
+            'description':record[6],
+            'ip':record[7],
+            'power_type':record[8],
+            'protocol':record[9],
+            'switch_type':record[10],
+            'place':record[11],
+            'building':record[12],
+            'room':record[13],
+            'model':record[18],
+            'rec_ios':record[19],
+            'power':record[20],
+            'project':record[15], 
+            'in_date':record[16].strftime('%d.%m.%Y')
+            } for record in records]
+    return {'status':True,'output':output}
 
 
 

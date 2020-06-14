@@ -1,6 +1,7 @@
 var app = new Vue({
 	el: "#models",
 	data: {
+		userinfo: {username:'',password:'',role:'',firstname:'',lastname:'',email:''},
 		search: "",
 		importState: "",
 		url: "/data/",
@@ -12,7 +13,7 @@ var app = new Vue({
 		all_fields: [
 			{key: 'index',label: '#', type: 'service'},
 			{key: 'model',label: 'Модель',type: 'select',default_value: '',sortable: true},
-			{key: 'ios',label: 'Версия ПО', type: 'select',default_value: ''},
+			{key: 'rec_ios',label: 'Версия ПО', type: 'select',default_value: ''},
             {key: 'power',label: 'Мощность', type: 'select',default_value: ''},	
 			{key: 'selected',label: '', type: 'service'}],
 		models_fields: [],
@@ -21,11 +22,18 @@ var app = new Vue({
 	},
 	created: 
 		function() {
-			fetch(this.url+'model/', {
-				mode : "no-cors", 
+			fetch(this.url+'user', {
 				method : "GET"
 			}
 			).then(response => response.json()).then(data => { 
+				console.log(data);
+				this.userinfo = data;
+			 });
+			fetch(this.url+'model', { 
+				method : "GET"
+			}
+			).then(response => response.json()).then(data => { 
+				console.log(data);
 				this.models = data;
 				this.totalRows = this.models.length
 			 });					
@@ -44,31 +52,29 @@ var app = new Vue({
 		DeleteModel() {
 			var del_array = [];
 			this.selected.forEach(element => {
-				del_array.push(element.id)
+				del_array.push(element.model_id)
 			});
 			fetch(this.url+"model/"+del_array.join("+"), {
 				method : "DELETE"
 			}
 			).then(response => response.json()).then(data => { 
 				console.log(data); 
-				fetch(this.url+'model/', {
-					mode : "no-cors", 
+				fetch(this.url+'model', {
 					method : "GET"
 				}
 				).then(response => response.json()).then(data => { this.models = data })
 			})
 		},
 		EditModel(){
-				fetch(this.url+"model/", {
-					mode : "no-cors", 
-					method : "POST",
+			Promise.all(this.selected.map(element=>
+				fetch(this.url+"model", {
+					method : "PATCH",
 					headers : {"Content-Type" : "application/json; charset=utf-8"},
-					body : JSON.stringify(this.selected)
+					body : JSON.stringify(element)
 				}
-				).then(response => response.json()).then(data => { 
+				).then(response => response.json()))).then(data => { 
 					console.log(data); 
-					fetch(this.url+'model/', {
-						mode : "no-cors", 
+					fetch(this.url+'model', {
 						method : "GET"
 					}
 					).then(response => response.json()).then(data => { this.models = data })

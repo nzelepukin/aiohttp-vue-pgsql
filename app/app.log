@@ -1,0 +1,271 @@
+2020-06-14 18:09:35,521 - DEBUG - Using selector: EpollSelector
+2020-06-14 18:09:35,522 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-14 18:09:35,530 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-14 18:09:35,532 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-14 18:09:35,534 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-14 18:09:35,536 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-14 18:09:35,539 - INFO - Connecting to Redis
+2020-06-14 18:09:35,547 - INFO - Connecting to POSTGRES database
+2020-06-14 18:09:35,556 - DEBUG - SELECT 1
+2020-06-14 18:09:35,557 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:09:35,560 - INFO - Connected to POSTGRES database
+2020-06-14 18:09:41,015 - INFO - 172.18.0.2 [14/Jun/2020:15:09:41 +0000] "GET /device HTTP/1.1" 302 222 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:09:41,019 - INFO - 172.18.0.2 [14/Jun/2020:15:09:41 +0000] "GET /user HTTP/1.1" 302 222 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:12:08,488 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-14 18:12:08,490 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:12:08,491 - ERROR - Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
+    resp = await task
+  File "/usr/local/lib/python3.8/site-packages/aiohttp/web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "/usr/local/lib/python3.8/site-packages/aiohttp/web_middlewares.py", line 119, in impl
+    return await handler(request)
+  File "/app/middleware.py", line 19, in error_middleware
+    return await handler(request)
+  File "/usr/local/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/usr/local/lib/python3.8/site-packages/aiohttp_session/__init__.py", line 154, in factory
+    response = await handler(request)
+  File "/usr/local/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/app/views/login.py", line 29, in post
+    user_id = await pg_check_user(self, user_signature )
+  File "/app/database.py", line 77, in pg_check_user
+    diag=await view.pg.fetchval(query)
+  File "/usr/local/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 81, in fetchval
+    return await conn.fetchval(
+  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 438, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "device_user" does not exist
+2020-06-14 18:12:08,500 - INFO - 172.18.0.2 [14/Jun/2020:15:12:08 +0000] "POST /login HTTP/1.1" 500 334 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:13:05,099 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-14 18:13:05,104 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,106 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1
+2020-06-14 18:13:05,107 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,110 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "POST /login HTTP/1.1" 302 302 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:13:05,272 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-14 18:13:05,276 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,279 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-14 18:13:05,285 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,287 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-14 18:13:05,292 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "GET /user HTTP/1.1" 200 266 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:13:05,293 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,298 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-14 18:13:05,299 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,302 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-14 18:13:05,307 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:05,309 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "GET /device HTTP/1.1" 200 177 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:13:07,438 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-14 18:13:07,440 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-14 18:13:07,441 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:07,442 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:07,444 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-14 18:13:07,446 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-14 18:13:07,448 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:07,449 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:07,451 - INFO - 172.18.0.2 [14/Jun/2020:15:13:07 +0000] "GET /user HTTP/1.1" 200 266 "http://localhost/models.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-14 18:13:07,454 - DEBUG - SELECT device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_models
+2020-06-14 18:13:07,457 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-14 18:13:07,459 - INFO - 172.18.0.2 [14/Jun/2020:15:13:07 +0000] "GET /model HTTP/1.1" 200 241 "http://localhost/models.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"

@@ -38,7 +38,7 @@ async def snmp_get_info(device: dict, com: str, sem)->dict:
             }
         try:
             with aiosnmp.Snmp(host=device['ip'], port=161, community=com) as snmp:
-                result={'id':device['id']}
+                result={'dev_id':device['dev_id']}
                 manufacturer = await snmp.get(manufacturer_oid)
                 manufacturer=manufacturer[0].value.strip().split('.')[7]
                 if manufacturer in oid_dict: 
@@ -89,8 +89,8 @@ async def snmp_gathering(device_list:list,com:str)->list:
     return results
 
 if __name__ == "__main__":
-    test_dict=[{'id':1,'ip':'192.168.173.214'}]
-    test_com='test'
+    test_dict=[{'id':1,'ip':'192.168.101.2'}]
+    test_com='testme'
     result = asyncio.run(snmp_gathering(test_dict,test_com))
     for each in result:
         print(each)

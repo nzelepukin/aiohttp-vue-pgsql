@@ -1,79 +1,65 @@
 import time,os,datetime
-from database import Base
-from sqlalchemy import Table, Column,DateTime, Integer, String, Float,LargeBinary, MetaData, ForeignKey, engine, create_engine,Unicode
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker,relationship
 
-class IPbase(Base):
-    __tablename__='SwitchIp'
-    id = Column(Integer, primary_key=True)
-    ipaddr = Column( String(15))
+from sqlalchemy import (
+    Column, DateTime, ForeignKey, ForeignKeyConstraint, Integer,
+    MetaData, String, Table
+)
 
-class Model(Base):
-    __tablename__='SwitchModel'
-    id = Column(Integer, primary_key=True)
-    model = Column( String(50))
-    ios = Column( String(100)) 
-    power = Column(Integer)   
+# SQLAlchemy рекомендует использовать единый формат для генерации названий для
+# индексов и внешних ключей.
+# https://docs.sqlalchemy.org/en/13/core/constraints.html#configuring-constraint-naming-conventions
+convention = {
+    'all_column_names': lambda constraint, table: '_'.join([
+        column.name for column in constraint.columns.values()
+    ]),
+    'ix': 'ix__%(table_name)s__%(all_column_names)s',
+    'uq': 'uq__%(table_name)s__%(all_column_names)s',
+    'ck': 'ck__%(table_name)s__%(constraint_name)s',
+    'fk': 'fk__%(table_name)s__%(all_column_names)s__%(referred_table_name)s',
+    'pk': 'pk__%(table_name)s'
+}
 
-class Places(Base):
-    __tablename__='SwitchPlaces'
-    id = Column(Integer, primary_key=True)
-    place = Column( String(50))
+metadata = MetaData(naming_convention=convention)
 
-class Buildings(Base):
-    __tablename__='SwitchBuildings'
-    id = Column(Integer, primary_key=True)
-    building = Column( String(50))
+model_table = Table (
+    'device_models',
+    metadata,
+    Column('model_id', Integer, autoincrement=True, unique=True, primary_key=True),
+    Column('model', String, nullable=False, unique=True),
+    Column('rec_ios', String, nullable=False),
+    Column('power', Integer, nullable=False)
+)  
 
-class Rooms(Base):
-    __tablename__='SwitchRooms'
-    id = Column(Integer, primary_key=True)
-    room = Column( String(50))
+base_table = Table(
+    'device_base',
+    metadata,
+    Column('dev_id', Integer, autoincrement=True, unique=True, primary_key=True),
+    Column('hostname', String, nullable=False),
+    Column('serial_n', String, nullable=False),
+    Column('dev_ios', String, nullable=False),
+    Column('inv_n', String, nullable=False),
+    Column('nom_n', String, nullable=False),
+    Column('description', String, nullable=False),
+    Column('ip', String, nullable=False),
+    Column('power_type', String, nullable=False),
+    Column('protocol', String, nullable=False),
+    Column('switch_type', String, nullable=False),
+    Column('place', String, nullable=False),
+    Column('building', String, nullable=False),
+    Column('room', String, nullable=False),
+    Column('model_id', Integer, ForeignKey('device_models.model_id')), 
+    Column('project', String, nullable=False), 
+    Column('in_date', DateTime(timezone=True), nullable=False)
+)
 
-class SwitchType(Base):
-    __tablename__='SwitchType'
-    id = Column(Integer, primary_key=True)
-    device_type = Column( String(30))
-
-class PowerType(Base):
-    __tablename__='SwitchPowerType'
-    id = Column(Integer, primary_key=True)
-    power_type = Column( String(30))
-
-class Protocol(Base):
-    __tablename__='SwitchProtocol'
-    id = Column(Integer, primary_key=True)
-    protocol = Column( String(10))
-
-class Projects(Base):
-    __tablename__='SwitchProjects'
-    id = Column(Integer, primary_key=True)
-    project = Column( String(100))
-
-class Switch(Base):
-    __tablename__='SwitchBase'
-    id = Column(Integer, primary_key=True)
-    hostname = Column( String(50))
-    serial_n = Column( String(30))
-    dev_ios = Column( String(100))
-    inv_n = Column( String(30))
-    nom_n = Column( String(30))
-    project_id = Column(Integer, ForeignKey("SwitchProjects.id"))
-    in_date = Column(DateTime(timezone=True))
-    description = Column( String(100))
-    protocol_id = Column(Integer, ForeignKey("SwitchProtocol.id"))
-    power_type_id = Column(Integer, ForeignKey("SwitchPowerType.id"))
-    type_id = Column(Integer, ForeignKey("SwitchType.id"))
-    model_id = Column(Integer, ForeignKey("SwitchModel.id"))
-    place_id = Column(Integer, ForeignKey("SwitchPlaces.id"))
-    building_id = Column(Integer, ForeignKey("SwitchBuildings.id"))
-    room_id = Column(Integer, ForeignKey("SwitchRooms.id"))
-    ip_id = Column(Integer, ForeignKey("SwitchIp.id"))
-
-class Service(Base):
-    __tablename__='SwitchService'
-    id = Column(Integer, primary_key=True)
-    parameter = Column( String(50))
-    value = Column( String(100))
-
+user_table = Table(
+    'device_user',
+    metadata,
+    Column('user_id', Integer, autoincrement=True, primary_key=True),
+    Column('username', String, nullable=False, unique=True),
+    Column('password', String, nullable=False),
+    Column('role', String, nullable=False),
+    Column('firstname', String),
+    Column('lastname', String),
+    Column('email', String)
+)

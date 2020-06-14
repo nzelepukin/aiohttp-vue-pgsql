@@ -12,7 +12,7 @@
     <div id="switchbase" >
       <div>
         <b-navbar type="light">
-          <b-navbar-brand href="/">SwitchBase</b-navbar-brand>
+          <b-navbar-brand href="/index.html">SwitchBase</b-navbar-brand>
       
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       
@@ -64,6 +64,10 @@
               <b-nav-form>
                 <b-form-input class="app-form-control" placeholder="Search" v-model="search"></b-form-input>
               </b-nav-form>
+              <b-nav-item-dropdown :text=userinfo.username right>
+                <b-dropdown-item v-on:click ='logout()'>
+                  LogOut
+                </b-dropdown-item> 
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
