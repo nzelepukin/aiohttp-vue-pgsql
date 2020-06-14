@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-        db-pgsql:
+    db-pgsql:
         image: 'postgres:12'
         networks: 
             - webapp-net  
