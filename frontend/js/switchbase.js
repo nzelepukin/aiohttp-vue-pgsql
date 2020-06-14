@@ -1,6 +1,7 @@
 var app = new Vue({
 	el: "#switchbase",
 	data: {
+		userinfo: {username:'',password:'',role:'',firstname:'',lastname:'',email:''},
 		search: "",
 		importState: "",
 		url: "/data/",
@@ -8,13 +9,13 @@ var app = new Vue({
 		headVariant: "dark",
 		currentPage: 1,
 		totalRows: 1,
-		perPage: 20,
+		perPage: 100,
 		all_fields: [
 			{key: 'index',label: '#', type: 'service', count: 1},
 			{key: 'protocol',label: 'Протокол',type: 'select',default_value: '',sortable: true, count: 2},
 			{key: 'ip',label: 'IP адрес', type: 'select',default_value: '',sortable: true, count: 3},
             {key: 'hostname',label: 'Имя', type: 'select',default_value: '', count: 4},
-            {key: 'serial',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
+            {key: 'serial_n',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
 			{key: 'model',label: 'Модель', type: 'select', default_value: '', sortable: true, count: 6},
 			{key: 'dev_ios',label: 'Версия ПО', type: 'select',default_value: '', sortable: true, count: 7},
 			{key: 'description',label: 'Описание', type: 'select',default_value: '', count: 8},			
@@ -22,7 +23,7 @@ var app = new Vue({
 			{key: 'in_date',label: 'Дата ввода', type: 'date', default_value: '01.01.1900',sortable: true, count: 10},
 			{key: 'power',label: 'Мощность', type: 'service', count: 11},
 			{key: 'power_type',label: 'Эл. питание',type: 'select', default_value: '', sortable: true, count: 12},
-			{key: 'type',label: 'Тип', type: 'select',default_value: '', count: 13},			
+			{key: 'switch_type',label: 'Тип', type: 'select',default_value: '', count: 13},			
 			{key: 'place',label: 'Объект', type: 'select',default_value: '',sortable: true, count: 14},
             {key: 'building',label: 'Здание', type: 'select',default_value: '', count: 15},
 			{key: 'room',label: 'Комната', type: 'select',default_value: '', count: 16},	
@@ -40,14 +41,20 @@ var app = new Vue({
 				{key: 'index',label: '#', type: 'service', count: 1},
 				{key: 'ip',label: 'IP адрес', type: 'select',default_value: '',sortable: true, count: 3},
 				{key: 'hostname',label: 'Имя', type: 'select',default_value: '', count: 4},
-				{key: 'serial',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
+				{key: 'serial_n',label: 'Серийный номер', type: 'select',default_value: '', count: 5},
 				{key: 'model',label: 'Модель', type: 'select', default_value: '', sortable: true, count: 6},
 				{key: 'dev_ios',label: 'Версия ПО', type: 'select',default_value: '', sortable: true, count: 7},
 				{key: 'place',label: 'Объект', type: 'select',default_value: '',sortable: true, count: 14},
 				{key: 'selected',label: '', type: 'service', count: 100}	        
 		];
-			fetch(this.url+'switch/', {
-				mode : "no-cors", 
+			fetch(this.url+'user', {
+				method : "GET"
+			}
+			).then(response => response.json()).then(data => { 
+				console.log(data);
+				this.userinfo = data;
+			 });		
+			fetch(this.url+'device', {
 				method : "GET"
 			}
 			).then(response => response.json()).then(data => { 
@@ -58,22 +65,28 @@ var app = new Vue({
 
 	methods: {
 		snmpinfo() {
-			console.log(JSON.stringify(this.selected));
-			fetch(this.url+"snmpinfo/", {
-				mode : "no-cors", 
-				method : "POST",
+			fetch(this.url+"snmpinfo", { 
+				method : "PATCH",
 				headers : {"Content-Type" : "application/json; charset=utf-8"},
 				body : JSON.stringify(this.selected)
 			}
 			).then(response => response.json()).then(data => { 
 				console.log(data); 
-				fetch(this.url+'switch/', {
-					mode : "no-cors", 
-					method : "GET"
-				}
+				Promise.all(data.map(element=>
+					fetch(this.url+"device", {
+						method : "PATCH",
+						headers : {"Content-Type" : "application/json; charset=utf-8"},
+						body : JSON.stringify(element)
+					}
+					).then(response => response.json())
+				)).then(data=> {
+					console.log(data);
+					fetch(this.url+'device', {
+						method : "GET"
+					}
 				).then(response => response.json()).then(data => { this.switches = data })
+				})
 			})
-
 		},	
 		handleFileUpload(){
 			this.file = this.$refs.file.files[0];
@@ -81,18 +94,26 @@ var app = new Vue({
 			this.importState="Загрузка файла ..."
 			let formData = new FormData();
 			formData.append('file', this.file);
-			fetch(this.url+"xlstobase/", {
-				mode : "no-cors", 
+			fetch(this.url+"xlstobase", { 
 				method : "POST",
 				body: formData
 			}
 			).then(response => response.json()).then(data => {
-				console.log(data);
-				this.importState="Файл загружен, необходимо обновить страницу";
-				fetch(this.url+"switch/", {
-					mode : "no-cors", 
-					method : "GET"
-				}).then(response => response.json()).then(data => { this.switches = data;})
+				Promise.all(data.map(element=>
+					fetch(this.url+"device", {
+						method : "POST",
+						headers : {"Content-Type" : "application/json; charset=utf-8"},
+						body : JSON.stringify(element)
+					}
+					).then(response => response.json())
+				)).then(data=> {
+					console.log(data);
+					fetch(this.url+'device', {
+						method : "GET"
+					}
+				).then(response => response.json()).then(data => { this.switches = data })
+				});
+				this.importState="Файл загружен,";
 			});
 		},
 		onRowSelected(switches) {
@@ -109,19 +130,19 @@ var app = new Vue({
 			this.all_fields.forEach(element => {
 				if (element.type==='service') {}
 				else { 
-				new_device[element.key]=document.getElementById('new-'+element.key).value;
+					if ( document.getElementById('new-'+element.key).value!='') {
+				new_device[element.key]=document.getElementById('new-'+element.key).value;}
 				}
-			})
-			fetch(this.url+"switch/", {
-				mode : "no-cors", 
+			});
+			console.log(new_device);
+			fetch(this.url+"device", {
 				method : "POST",
 				headers : {"Content-Type" : "application/json; charset=utf-8"},
 				body : JSON.stringify(new_device)
 			}
 			).then(response => response.json()).then(data => { 
 				console.log(data); 
-				fetch(this.url+'switch/', {
-					mode : "no-cors", 
+				fetch(this.url+'device', {
 					method : "GET"
 				}
 				).then(response => response.json()).then(data => { this.switches = data })
@@ -143,15 +164,14 @@ var app = new Vue({
 		DeleteDevice() {
 			var del_array = [];
 			this.selected.forEach(element => {
-				del_array.push(element.id)
+				del_array.push(element.dev_id)
 			});
-			fetch(this.url+"switch/"+del_array.join("+"), {
+			fetch(this.url+"device/"+del_array.join("+"), {
 				method : "DELETE"
 			}
 			).then(response => response.json()).then(data => { 
 				console.log(data); 
-				fetch(this.url+'switch/', {
-					mode : "no-cors", 
+				fetch(this.url+'device', {
 					method : "GET"
 				}
 				).then(response => response.json()).then(data => { this.switches = data })
@@ -173,29 +193,32 @@ var app = new Vue({
 			var output = []
 			var tmp = {}
 			if (this.selected.length>0) {
-				this.selected.forEach( element => output.push({id: element.id}));
+				this.selected.forEach( element => output.push({dev_id: element.dev_id}));
 				this.editParameters.forEach(element=>(
 					tmp[element]=document.getElementById('edit-'+element).value )); 
 				output.forEach(element=>{
 					for (var prop in tmp) {
 						element[prop]=tmp[prop]
 					}
-				})   
-				fetch(this.url+"edit-switch/", {
-					mode : "no-cors", 
-					method : "POST",
-					headers : {"Content-Type" : "application/json; charset=utf-8"},
-					body : JSON.stringify(output)
-				}
-				).then(response => response.json()).then(data => { 
-					console.log(data); 
-					fetch(this.url+'switch/', {
-						mode : "no-cors", 
+				});
+				Promise.all(output.map(element=>
+					fetch(this.url+"device", {
+						method : "PATCH",
+						headers : {"Content-Type" : "application/json; charset=utf-8"},
+						body : JSON.stringify(element)
+					}
+					).then(response => response.json())
+				)).then(data=> {
+					console.log(data);
+					fetch(this.url+'device', {
 						method : "GET"
 					}
-					).then(response => response.json()).then(data => { this.switches = data })
+				).then(response => response.json()).then(data => { this.switches = data })
 				})
 			}
+		},
+		logout() {
+			window.location.href = this.url+'logout';
 		},
 		onFiltered(filteredItems) {
 			// Trigger pagination to update the number of buttons/pages due to filtering

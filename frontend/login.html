@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-vue/bootstrap-vue.min.css">
+        <script src="js/crypt.js"></script>
+    </head>
+    <body>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <form method="post" action="/data/login">
+                    <div class="fadeIn first">
+                            <img src="/icon.svg" id="icon" alt="User Icon" />
+                      </div>
+                    <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                    <input type="submit" class="fadeIn fourth" onclick="return document.getElementById('password').value=md5(document.getElementById('password').value)" value="Log In" >
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

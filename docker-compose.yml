@@ -1,0 +1,59 @@
+version: '3.2'
+services:
+        db-pgsql:
+        image: 'postgres:12'
+        networks: 
+            - webapp-net  
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin
+            - POSTGRES_DB=devices
+        ports:
+            - "5432:5432"
+        volumes:
+            - '/etc/timezone:/etc/timezone:ro'
+            - '/etc/localtime:/etc/localtime:ro'
+            - '/var/lib/postgresql:/var/lib/postgresql'
+
+    db-redis:
+        image: 'redis:alpine'
+        networks: 
+            - webapp-net  
+        environment:
+            - REDIS_PORT=6379
+        ports:
+            - "6379:6379"
+        volumes:
+            - '/var/lib/redis_data:/data'  
+        command: 'redis-server --requirepass secret'
+
+    webapp:
+        image: 'webapp'
+        networks: 
+            - webapp-net               
+        volumes:
+            - '/etc/timezone:/etc/timezone:ro'
+            - '/etc/localtime:/etc/localtime:ro'
+            - './app/:/app'
+
+    nginx:
+        image: 'nginx'
+        networks: 
+            - webapp-net        
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - '/etc/timezone:/etc/timezone:ro'
+            - '/etc/localtime:/etc/localtime:ro'
+            - '/usr/web-base/nginx/conf.d:/etc/nginx/conf.d'
+            - '/usr/web-base/nginx/ssl:/etc/nginx/ssl'
+            - '/usr/web-base/frontend:/frontend'
+            - '/usr/web-base/logs/nginx:/logs'
+
+networks:
+    webapp-net:
+
+
+                
+    
