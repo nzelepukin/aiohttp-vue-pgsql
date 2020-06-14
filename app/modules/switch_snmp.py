@@ -47,13 +47,18 @@ async def snmp_get_info(device: dict, com: str, sem)->dict:
                     hostname = hostname[0].value.decode(encoding='UTF-8').strip()
                     if hostname.find('.')>1: result['hostname']=hostname.split('.')[0]
                     else: result['hostname']=hostname
-                    model = await snmp.bulk_walk(oid_dict[manufacturer]['model'])
-                    result['model'] = model[0].value.strip().decode(encoding='UTF-8') 
                     stack = await snmp.bulk_walk(stack_oid)
                     stack = [record.value for record in stack]
-                    if len(stack)<2:
+                    if not stack[0]:
+                        model = await snmp.bulk_walk(oid_dict[manufacturer]['model'])
+                        result['model'] = model[0].value.strip().decode(encoding='UTF-8')
                         serial = await snmp.bulk_walk(oid_dict[manufacturer]['serial_n'])
                         result['serial_n'] = serial[0].value.decode(encoding='UTF-8').strip()
+                    elif len(stack)<2:
+                        serial = await snmp.get('{}.{}'.format(oid_dict[manufacturer]['serial_n'],stack[0]))
+                        result['serial_n'] = serial[0].value.decode(encoding='UTF-8').strip()
+                        model = await snmp.get('{}.{}'.format(oid_dict[manufacturer]['model'],stack[0]))
+                        result['model'] = model[0].value.decode(encoding='UTF-8').strip()
                     else:
                         if result['manufacturer']=='Cisco' and not result['model'].startswith('WS') and not result['model']=='':
                             serial = await snmp.bulk_walk(oid_dict[manufacturer]['serial_n'])

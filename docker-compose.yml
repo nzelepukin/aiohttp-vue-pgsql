@@ -30,7 +30,10 @@ services:
     webapp:
         image: 'webapp'
         networks: 
-            - webapp-net               
+            - webapp-net 
+        depends_on:
+            - db-pgsql
+            - db-redis              
         volumes:
             - '/etc/timezone:/etc/timezone:ro'
             - '/etc/localtime:/etc/localtime:ro'
@@ -43,6 +46,8 @@ services:
         ports:
             - "80:80"
             - "443:443"
+        depends_on:
+            - webapp
         volumes:
             - '/etc/timezone:/etc/timezone:ro'
             - '/etc/localtime:/etc/localtime:ro'
