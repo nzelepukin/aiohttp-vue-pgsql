@@ -1,13 +1,13 @@
-2020-06-14 18:09:35,521 - DEBUG - Using selector: EpollSelector
-2020-06-14 18:09:35,522 - DEBUG - Creating tcp connection to ('db-redis', 6379)
-2020-06-14 18:09:35,530 - DEBUG - Creating tcp connection to ('db-redis', 6379)
-2020-06-14 18:09:35,532 - DEBUG - Creating tcp connection to ('db-redis', 6379)
-2020-06-14 18:09:35,534 - DEBUG - Creating tcp connection to ('db-redis', 6379)
-2020-06-14 18:09:35,536 - DEBUG - Creating tcp connection to ('db-redis', 6379)
-2020-06-14 18:09:35,539 - INFO - Connecting to Redis
-2020-06-14 18:09:35,547 - INFO - Connecting to POSTGRES database
-2020-06-14 18:09:35,556 - DEBUG - SELECT 1
-2020-06-14 18:09:35,557 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 22:57:42,194 - DEBUG - Using selector: EpollSelector
+2020-06-22 22:57:42,195 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-22 22:57:42,201 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-22 22:57:42,208 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-22 22:57:42,213 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-22 22:57:42,219 - DEBUG - Creating tcp connection to ('db-redis', 6379)
+2020-06-22 22:57:42,229 - INFO - Connecting to Redis
+2020-06-22 22:57:42,249 - INFO - Connecting to POSTGRES database
+2020-06-22 22:57:42,261 - DEBUG - SELECT 1
+2020-06-22 22:57:42,262 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -20,13 +20,12 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:09:35,560 - INFO - Connected to POSTGRES database
-2020-06-14 18:09:41,015 - INFO - 172.18.0.2 [14/Jun/2020:15:09:41 +0000] "GET /device HTTP/1.1" 302 222 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:09:41,019 - INFO - 172.18.0.2 [14/Jun/2020:15:09:41 +0000] "GET /user HTTP/1.1" 302 222 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:12:08,488 - DEBUG - SELECT EXISTS (SELECT * 
+2020-06-22 22:57:42,264 - INFO - Connected to POSTGRES database
+2020-06-22 22:57:49,445 - INFO - BEGIN: Select user by ID 3
+2020-06-22 22:57:49,448 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
-WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
-2020-06-14 18:12:08,490 - DEBUG - SELECT pg_advisory_unlock_all();
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:57:49,451 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -39,7 +38,23 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:12:08,491 - ERROR - Error handling request
+2020-06-22 22:57:49,454 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:57:49,456 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:57:49,458 - ERROR - Error handling request
 Traceback (most recent call last):
   File "/usr/local/lib/python3.8/site-packages/aiohttp/web_protocol.py", line 418, in start
     resp = await task
@@ -47,7 +62,7 @@ Traceback (most recent call last):
     resp = await handler(request)
   File "/usr/local/lib/python3.8/site-packages/aiohttp/web_middlewares.py", line 119, in impl
     return await handler(request)
-  File "/app/middleware.py", line 19, in error_middleware
+  File "/app/middleware.py", line 20, in error_middleware
     return await handler(request)
   File "/usr/local/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
     return await handler(request)
@@ -55,29 +70,491 @@ Traceback (most recent call last):
     response = await handler(request)
   File "/usr/local/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
     resp = await method()
-  File "/app/views/login.py", line 29, in post
-    user_id = await pg_check_user(self, user_signature )
-  File "/app/database.py", line 77, in pg_check_user
-    diag=await view.pg.fetchval(query)
-  File "/usr/local/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 81, in fetchval
-    return await conn.fetchval(
-  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 438, in fetchval
-    data = await self._execute(query, args, 1, timeout)
-  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
-    result, _ = await self.__execute(
-  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
-    return await self._do_execute(query, executor, timeout)
-  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
-    stmt = await self._get_statement(query, None)
-  File "/usr/local/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
-    statement = await self._protocol.prepare(stmt_name, query, timeout)
-  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
-asyncpg.exceptions.UndefinedTableError: relation "device_user" does not exist
-2020-06-14 18:12:08,500 - INFO - 172.18.0.2 [14/Jun/2020:15:12:08 +0000] "POST /login HTTP/1.1" 500 334 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:13:05,099 - DEBUG - SELECT EXISTS (SELECT * 
+  File "/app/modules/auth.py", line 35, in wrapped
+    return await fn(view, *args, **kwargs)
+  File "/app/views/user.py", line 62, in patch
+    await user_edit(self, user_dict ),
+  File "/app/devbase_logic.py", line 29, in user_edit
+    edit_check = await pg_edit_user(view, user_dict )
+  File "/app/database.py", line 50, in pg_edit_user
+    logging.info('BEGIN: Edit user {}'.format(user['username']))
+KeyError: 'username'
+2020-06-22 22:57:49,466 - INFO - 172.18.0.5 [22/Jun/2020:19:57:49 +0000] "PATCH /userbase HTTP/1.1" 500 244 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 22:59:49,278 - INFO - BEGIN: Select user by ID 3
+2020-06-22 22:59:49,280 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:59:49,281 - INFO - BEGIN: Select user by ID 3
+2020-06-22 22:59:49,282 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:49,285 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:59:49,289 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:49,290 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:59:49,294 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-22 22:59:49,295 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:49,297 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:59:49,304 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:49,306 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:49,308 - INFO - 172.18.0.5 [22/Jun/2020:19:59:49 +0000] "GET /user HTTP/1.1" 200 616 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 22:59:49,327 - INFO - 172.18.0.5 [22/Jun/2020:19:59:49 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 22:59:50,611 - INFO - BEGIN: Select user by ID 3
+2020-06-22 22:59:50,612 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:59:50,613 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:50,614 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:59:50,615 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:50,616 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user
+2020-06-22 22:59:50,618 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:50,621 - INFO - 172.18.0.5 [22/Jun/2020:19:59:50 +0000] "GET /userbase HTTP/1.1" 200 552 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 22:59:53,224 - INFO - BEGIN: Select user by ID 3
+2020-06-22 22:59:53,225 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:59:53,227 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:53,229 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:59:53,230 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:53,232 - INFO - BEGIN: Edit user cisco
+2020-06-22 22:59:53,233 - DEBUG - BEGIN;
+2020-06-22 22:59:53,235 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 22:59:53,235 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 22:59:53,236 - DEBUG - COMMIT;
+2020-06-22 22:59:53,242 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:53,243 - INFO - FINISH: Edit user cisco
+2020-06-22 22:59:53,243 - INFO - BEGIN: Select user by ID 2
+2020-06-22 22:59:53,244 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 22:59:53,247 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:53,249 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 22:59:53,250 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 22:59:53,252 - INFO - 172.18.0.5 [22/Jun/2020:19:59:53 +0000] "PATCH /userbase HTTP/1.1" 200 338 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:01:20,560 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:01:20,563 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:01:20,567 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:01:20,568 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:01:20,569 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:20,570 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:20,571 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:01:20,573 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:20,574 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:01:20,576 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-22 23:01:20,583 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:20,584 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:20,597 - INFO - 172.18.0.5 [22/Jun/2020:20:01:20 +0000] "GET /user HTTP/1.1" 200 616 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:01:20,606 - INFO - 172.18.0.5 [22/Jun/2020:20:01:20 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:01:21,847 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:01:21,848 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:01:21,849 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:21,850 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:01:21,851 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:21,854 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user
+2020-06-22 23:01:21,855 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:21,864 - INFO - 172.18.0.5 [22/Jun/2020:20:01:21 +0000] "GET /userbase HTTP/1.1" 200 552 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:01:23,528 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:01:23,530 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:01:23,532 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:23,535 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:01:23,537 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:23,538 - INFO - BEGIN: Edit user cisco
+2020-06-22 23:01:23,539 - DEBUG - BEGIN;
+2020-06-22 23:01:23,540 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:01:23,540 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:01:23,541 - DEBUG - COMMIT;
+2020-06-22 23:01:23,542 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:23,543 - INFO - FINISH: Edit user cisco
+2020-06-22 23:01:23,543 - INFO - BEGIN: Select user by ID 2
+2020-06-22 23:01:23,544 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:01:23,545 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:23,546 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:01:23,546 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:01:23,548 - INFO - 172.18.0.5 [22/Jun/2020:20:01:23 +0000] "PATCH /userbase HTTP/1.1" 200 338 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:13,935 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:02:13,938 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:02:13,940 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:13,943 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:02:13,944 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:13,945 - INFO - User 3 logged out
+2020-06-22 23:02:13,947 - INFO - 172.18.0.5 [22/Jun/2020:20:02:13 +0000] "GET /logout HTTP/1.1" 302 312 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:19,936 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
 WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
-2020-06-14 18:13:05,104 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:02:19,938 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -90,10 +567,44 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:05,106 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+2020-06-22 23:02:19,940 - INFO - 172.18.0.5 [22/Jun/2020:20:02:19 +0000] "POST /login HTTP/1.1" 401 201 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:28,952 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:02:28,953 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:28,956 - INFO - 172.18.0.5 [22/Jun/2020:20:02:28 +0000] "POST /login HTTP/1.1" 401 201 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:46,783 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:02:46,786 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:46,788 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
 FROM device_user 
 WHERE device_user.username = $2 AND device_user.password = $1
-2020-06-14 18:13:05,107 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:02:46,791 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -106,44 +617,16 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:05,110 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "POST /login HTTP/1.1" 302 302 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:13:05,272 - DEBUG - SELECT EXISTS (SELECT * 
+2020-06-22 23:02:46,793 - INFO - 172.18.0.5 [22/Jun/2020:20:02:46 +0000] "POST /login HTTP/1.1" 302 302 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:47,002 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:02:47,010 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
 WHERE device_user.user_id = $1) AS anon_1
-2020-06-14 18:13:05,276 - DEBUG - SELECT pg_advisory_unlock_all();
-CLOSE ALL;
-
-                DO $$
-                BEGIN
-                    PERFORM * FROM pg_listening_channels() LIMIT 1;
-                    IF FOUND THEN
-                        UNLISTEN *;
-                    END IF;
-                END;
-                $$;
-            
-RESET ALL;
-2020-06-14 18:13:05,279 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
-FROM device_user 
-WHERE device_user.user_id = $1
-2020-06-14 18:13:05,285 - DEBUG - SELECT pg_advisory_unlock_all();
-CLOSE ALL;
-
-                DO $$
-                BEGIN
-                    PERFORM * FROM pg_listening_channels() LIMIT 1;
-                    IF FOUND THEN
-                        UNLISTEN *;
-                    END IF;
-                END;
-                $$;
-            
-RESET ALL;
-2020-06-14 18:13:05,287 - DEBUG - SELECT EXISTS (SELECT * 
+2020-06-22 23:02:47,025 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:02:47,028 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
 WHERE device_user.user_id = $1) AS anon_1
-2020-06-14 18:13:05,292 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "GET /user HTTP/1.1" 200 266 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:13:05,293 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:02:47,030 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -156,10 +639,26 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:05,298 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+2020-06-22 23:02:47,031 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:47,032 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
 FROM device_user 
 WHERE device_user.user_id = $1
-2020-06-14 18:13:05,299 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:02:47,035 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:02:47,036 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -172,9 +671,23 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:05,302 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+2020-06-22 23:02:47,039 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:02:47,044 - INFO - 172.18.0.5 [22/Jun/2020:20:02:46 +0000] "GET /user HTTP/1.1" 200 616 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:02:47,046 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
 FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
-2020-06-14 18:13:05,307 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:02:47,053 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -187,14 +700,46 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:05,309 - INFO - 172.18.0.2 [14/Jun/2020:15:13:05 +0000] "GET /device HTTP/1.1" 200 177 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:13:07,438 - DEBUG - SELECT EXISTS (SELECT * 
+2020-06-22 23:02:47,085 - INFO - 172.18.0.5 [22/Jun/2020:20:02:46 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:22,730 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:22,732 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
 WHERE device_user.user_id = $1) AS anon_1
-2020-06-14 18:13:07,440 - DEBUG - SELECT EXISTS (SELECT * 
+2020-06-22 23:03:22,737 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:22,740 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:22,741 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:22,744 - INFO - 172.18.0.5 [22/Jun/2020:20:03:22 +0000] "GET /user HTTP/1.1" 200 616 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:22,746 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:22,748 - DEBUG - SELECT EXISTS (SELECT * 
 FROM device_user 
 WHERE device_user.user_id = $1) AS anon_1
-2020-06-14 18:13:07,441 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:03:22,750 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -207,26 +752,59 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:07,442 - DEBUG - SELECT pg_advisory_unlock_all();
-CLOSE ALL;
-
-                DO $$
-                BEGIN
-                    PERFORM * FROM pg_listening_channels() LIMIT 1;
-                    IF FOUND THEN
-                        UNLISTEN *;
-                    END IF;
-                END;
-                $$;
-            
-RESET ALL;
-2020-06-14 18:13:07,444 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+2020-06-22 23:03:22,753 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
 FROM device_user 
 WHERE device_user.user_id = $1
-2020-06-14 18:13:07,446 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email 
+2020-06-22 23:03:22,754 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:22,757 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-22 23:03:22,765 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:22,782 - INFO - 172.18.0.5 [22/Jun/2020:20:03:22 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:23,865 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:23,866 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:23,868 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:23,870 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
 FROM device_user 
 WHERE device_user.user_id = $1
-2020-06-14 18:13:07,448 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:03:23,872 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -239,7 +817,9 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:07,449 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:03:23,873 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user
+2020-06-22 23:03:23,874 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -252,10 +832,12 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:07,451 - INFO - 172.18.0.2 [14/Jun/2020:15:13:07 +0000] "GET /user HTTP/1.1" 200 266 "http://localhost/models.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
-2020-06-14 18:13:07,454 - DEBUG - SELECT device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
-FROM device_models
-2020-06-14 18:13:07,457 - DEBUG - SELECT pg_advisory_unlock_all();
+2020-06-22 23:03:23,875 - INFO - 172.18.0.5 [22/Jun/2020:20:03:23 +0000] "GET /userbase HTTP/1.1" 200 552 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:26,234 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:26,236 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:26,237 - DEBUG - SELECT pg_advisory_unlock_all();
 CLOSE ALL;
 
                 DO $$
@@ -268,4 +850,716 @@ CLOSE ALL;
                 $$;
             
 RESET ALL;
-2020-06-14 18:13:07,459 - INFO - 172.18.0.2 [14/Jun/2020:15:13:07 +0000] "GET /model HTTP/1.1" 200 241 "http://localhost/models.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+2020-06-22 23:03:26,239 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:26,240 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:26,241 - INFO - BEGIN: Edit user cisco
+2020-06-22 23:03:26,241 - DEBUG - BEGIN;
+2020-06-22 23:03:26,242 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:03:26,243 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:03:26,245 - DEBUG - COMMIT;
+2020-06-22 23:03:26,251 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:26,252 - INFO - FINISH: Edit user cisco
+2020-06-22 23:03:26,253 - INFO - BEGIN: Select user by ID 2
+2020-06-22 23:03:26,253 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:26,254 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:26,255 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:26,256 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:26,257 - INFO - 172.18.0.5 [22/Jun/2020:20:03:26 +0000] "PATCH /userbase HTTP/1.1" 200 370 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:28,243 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:28,245 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:28,246 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:28,248 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:28,249 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:28,250 - INFO - BEGIN: Edit user admin
+2020-06-22 23:03:28,251 - DEBUG - BEGIN;
+2020-06-22 23:03:28,251 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:03:28,251 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:03:28,252 - DEBUG - COMMIT;
+2020-06-22 23:03:28,254 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:28,255 - INFO - FINISH: Edit user admin
+2020-06-22 23:03:28,256 - INFO - BEGIN: Select user by ID 1
+2020-06-22 23:03:28,258 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:28,260 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:28,261 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:28,262 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:28,263 - INFO - 172.18.0.5 [22/Jun/2020:20:03:28 +0000] "PATCH /userbase HTTP/1.1" 200 371 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:33,308 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:03:33,310 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:03:33,311 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:33,313 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:03:33,314 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:33,315 - INFO - User 3 logged out
+2020-06-22 23:03:33,317 - INFO - 172.18.0.5 [22/Jun/2020:20:03:33 +0000] "GET /logout HTTP/1.1" 302 312 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:38,834 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:03:38,836 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:38,837 - INFO - 172.18.0.5 [22/Jun/2020:20:03:38 +0000] "POST /login HTTP/1.1" 401 201 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:03:51,836 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:03:51,838 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:03:51,839 - INFO - 172.18.0.5 [22/Jun/2020:20:03:51 +0000] "POST /login HTTP/1.1" 401 201 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:41,861 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:05:41,862 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:41,864 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1
+2020-06-22 23:05:41,865 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:41,867 - INFO - 172.18.0.5 [22/Jun/2020:20:05:41 +0000] "POST /login HTTP/1.1" 302 302 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:42,096 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:05:42,098 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:42,099 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:42,101 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:42,103 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:05:42,104 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:42,104 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:42,107 - INFO - 172.18.0.5 [22/Jun/2020:20:05:42 +0000] "GET /user HTTP/1.1" 200 616 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:42,109 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:42,111 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:42,112 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:42,113 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-22 23:05:42,122 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:42,137 - INFO - 172.18.0.5 [22/Jun/2020:20:05:42 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:52,028 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:05:52,030 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:52,032 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:52,033 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:52,034 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:52,036 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user
+2020-06-22 23:05:52,037 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:52,038 - INFO - 172.18.0.5 [22/Jun/2020:20:05:52 +0000] "GET /userbase HTTP/1.1" 200 552 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:54,252 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:05:54,254 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:54,256 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:54,258 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:54,259 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:54,260 - INFO - BEGIN: Edit user admin
+2020-06-22 23:05:54,260 - DEBUG - BEGIN;
+2020-06-22 23:05:54,262 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:05:54,263 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:05:54,265 - DEBUG - COMMIT;
+2020-06-22 23:05:54,271 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:54,272 - INFO - FINISH: Edit user admin
+2020-06-22 23:05:54,272 - INFO - BEGIN: Select user by ID 1
+2020-06-22 23:05:54,273 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:54,273 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:54,274 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:54,275 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:54,276 - INFO - 172.18.0.5 [22/Jun/2020:20:05:54 +0000] "PATCH /userbase HTTP/1.1" 200 371 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:05:55,220 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:05:55,223 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:55,224 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:55,227 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:55,228 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:55,229 - INFO - BEGIN: Edit user cisco
+2020-06-22 23:05:55,230 - DEBUG - BEGIN;
+2020-06-22 23:05:55,231 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:05:55,232 - DEBUG - UPDATE device_user SET user_id=$6, username=$8, password=$4, role=$5, firstname=$2, lastname=$3, email=$1 WHERE device_user.user_id = $7
+2020-06-22 23:05:55,232 - DEBUG - COMMIT;
+2020-06-22 23:05:55,233 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:55,234 - INFO - FINISH: Edit user cisco
+2020-06-22 23:05:55,234 - INFO - BEGIN: Select user by ID 2
+2020-06-22 23:05:55,235 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:05:55,236 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:55,237 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:05:55,237 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:05:55,239 - INFO - 172.18.0.5 [22/Jun/2020:20:05:55 +0000] "PATCH /userbase HTTP/1.1" 200 370 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:06:04,053 - INFO - BEGIN: Select user by ID 3
+2020-06-22 23:06:04,054 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:06:04,056 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:04,058 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:06:04,059 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:04,061 - INFO - User 3 logged out
+2020-06-22 23:06:04,062 - INFO - 172.18.0.5 [22/Jun/2020:20:06:04 +0000] "GET /logout HTTP/1.1" 302 312 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:06:09,603 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1) AS anon_1
+2020-06-22 23:06:09,605 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,607 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.username = $2 AND device_user.password = $1
+2020-06-22 23:06:09,609 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,611 - INFO - 172.18.0.5 [22/Jun/2020:20:06:09 +0000] "POST /login HTTP/1.1" 302 302 "http://localhost/login.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:06:09,813 - INFO - BEGIN: Select user by ID 1
+2020-06-22 23:06:09,815 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:06:09,818 - INFO - BEGIN: Select user by ID 1
+2020-06-22 23:06:09,825 - DEBUG - SELECT EXISTS (SELECT * 
+FROM device_user 
+WHERE device_user.user_id = $1) AS anon_1
+2020-06-22 23:06:09,829 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,834 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,851 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:06:09,859 - DEBUG - SELECT device_user.user_id, device_user.username, device_user.password, device_user.role, device_user.firstname, device_user.lastname, device_user.email, device_user.search, device_user.columns 
+FROM device_user 
+WHERE device_user.user_id = $1
+2020-06-22 23:06:09,862 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,863 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,867 - DEBUG - SELECT device_base.dev_id, device_base.hostname, device_base.serial_n, device_base.dev_ios, device_base.inv_n, device_base.nom_n, device_base.description, device_base.ip, device_base.power_type, device_base.protocol, device_base.switch_type, device_base.place, device_base.building, device_base.room, device_base.model_id, device_base.project, device_base.in_date, device_models.model_id, device_models.model, device_models.rec_ios, device_models.power 
+FROM device_base JOIN device_models ON device_base.model_id = device_models.model_id
+2020-06-22 23:06:09,873 - INFO - 172.18.0.5 [22/Jun/2020:20:06:09 +0000] "GET /user HTTP/1.1" 200 323 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:06:09,938 - DEBUG - SELECT pg_advisory_unlock_all();
+CLOSE ALL;
+
+                DO $$
+                BEGIN
+                    PERFORM * FROM pg_listening_channels() LIMIT 1;
+                    IF FOUND THEN
+                        UNLISTEN *;
+                    END IF;
+                END;
+                $$;
+            
+RESET ALL;
+2020-06-22 23:06:09,958 - INFO - 172.18.0.5 [22/Jun/2020:20:06:09 +0000] "GET /device HTTP/1.1" 200 381488 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+2020-06-22 23:07:04,820 - INFO - 172.18.0.5 [22/Jun/2020:20:07:04 +0000] "PATCH /user HTTP/1.1" 401 231 "http://localhost/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"

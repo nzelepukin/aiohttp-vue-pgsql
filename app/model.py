@@ -61,5 +61,7 @@ user_table = Table(
     Column('role', String, nullable=False),
     Column('firstname', String),
     Column('lastname', String),
-    Column('email', String)
+    Column('email', String),
+    Column('search', String),
+    Column('columns', String)
 )

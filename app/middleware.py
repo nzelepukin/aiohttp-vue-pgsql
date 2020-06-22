@@ -1,4 +1,5 @@
 from http import HTTPStatus
+from asyncpg import UniqueViolationError
 from aiohttp import web
 from aiohttp.web_exceptions import (
     HTTPBadRequest, HTTPException, HTTPInternalServerError,
@@ -20,5 +21,8 @@ async def error_middleware(request: Request, handler):
     except ValidationError:
         # Ошибки валидации, брошенные в обработчиках
         raise web.HTTPUnauthorized(reason='Request validation has failed')
+    except UniqueViolationError:
+        raise web.HTTPBadRequest(reason=' Non unique value')
+
 
 

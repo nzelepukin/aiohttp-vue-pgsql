@@ -11,19 +11,23 @@ class RequestAddUser(Schema):
     password = fields.Str(validate=Length(1,256),required=True)
     role = fields.Str(validate=Length(1,256),required=True)
 
-
 class RequestEditUser(Schema):
-    password = fields.Str(validate=Length(1,256),required=False)
+    user_id = fields.Int(validate=Range(0,1000000),required=True)
+    username = fields.Str(validate=Length(1,256),required=False)
+    password = fields.Str(validate=Length(0,256),required=False)
     role = fields.Str(validate=Length(1,256),required=False)
     firstname = fields.Str(validate=Length(1,256),required=False)
     lastname = fields.Str(validate=Length(1,256),required=False)
     email = fields.Str(validate=Length(1,256),required=False)
+    search = fields.List(fields.Str(validate=Length(1,1000)),required=False)
+    columns = fields.List(fields.Str(validate=Length(1,1000)),required=False)
+
 
 class RequestChangePass(Schema):
     password = fields.Str(validate=Length(1,256),required=True)
 
-class RequestDeleteUser(Schema):
-    username = fields.Str(validate=Length(1,256),required=True)
+class RequestDelete(Schema):
+    del_string= fields.Str(validate=Length(1,256),required=True)
 
 class RequestAddModel(Schema):
     model = fields.Str(validate=Length(1,256),required=True)

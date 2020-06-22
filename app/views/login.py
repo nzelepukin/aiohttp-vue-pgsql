@@ -1,4 +1,4 @@
-import os, logging
+import os, logging, json
 from aiohttp.web_exceptions import HTTPNotFound
 from http import HTTPStatus
 from aiohttp.web_urldispatcher import View
@@ -30,7 +30,7 @@ class Login(View):
         if user_id['status']:
             # Always use `new_session` during login to guard against
             # Session Fixation. See aiohttp-session#281
-            session = await new_session(self.request)
+            session = await new_session(self.request)            
             session['user_id'] = user_id['output']
             url='http://{}/index.html'.format(os.environ['NGINXHOST'])
             print(url)

@@ -62,7 +62,8 @@ def upgrade():
     )
     # ### end Alembic commands ###
     op.execute("INSERT INTO device_models (model, rec_ios, power) VALUES ('none','none',0);")
-    op.execute("INSERT INTO device_user (username, password, role) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3','admin');")
+    op.execute(
+        "INSERT INTO device_user (username, password, role, columns,search) VALUES ('admin','21232f297a57a5a743894a0e4a801fc3','admin', [],[]);")
 
 
 def downgrade():

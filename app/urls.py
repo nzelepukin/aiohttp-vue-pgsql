@@ -9,7 +9,7 @@ import aioredis
 from database import setup_pg, pg_check_user, pg_select_user_by_id, pg_add_user
 from middleware import error_middleware, handle_validation_error
 from views.login import Login, Logout
-from views.user import User
+from views.user import User, UserBase
 from views.dev_model import Dev_model
 from views.device import Device
 from views.utils import Utils, Multiconsole
@@ -23,20 +23,6 @@ logging.basicConfig(filename='app.log',
                     level=logging.DEBUG ,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-'''
-urls = [
-    web.post('/multiconsole/', multi_console),  # - multi SSH client
-    web.post('/snmpinfo/', renew_parameters),   # - SNMP get device info
-    web.post('/xlstobase/', switch_xls),        # - import existing xls file
-    web.get('/switch/', switchbase),            # - take switches from DB
-    web.post('/edit-switch/', edit_device),     # - change existing switch record in DB
-    web.post('/switch/', insert_device),        # - insert switch record to DB
-    web.delete('/switch/{del_string}', delete_device),  # - delete switch record to DB
-    web.get('/model/', select_models),                  # - take models from DB
-    web.post('/model/', edit_model),                    # - insert model record to DB
-    web.delete('/model/{del_string}', delete_model)     # - delete model record to DB    
-]
-'''
 
 async def make_redis_pool():
     redis_url='redis://r:{}@{}'.format(os.environ['REDISPASS'],os.environ['REDISHOST'])
@@ -82,6 +68,8 @@ def create_app() -> web.Application:
     app.router.add_get('/test', Utils)
     app.router.add_get('/logout', Logout)
     app.router.add_route('*','/user', User)
+    app.router.add_route('*','/userbase', UserBase)
+    app.router.add_delete('/userbase/{del_string}', UserBase)
     
     return app
 

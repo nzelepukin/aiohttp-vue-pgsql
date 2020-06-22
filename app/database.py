@@ -1,6 +1,6 @@
-import time,aioredis,os,datetime, logging
+import time,aioredis,os,datetime, logging,json
+from aiohttp import web
 from asyncpgsa import PG 
-from asyncpg import UniqueViolationError
 from aiohttp.web_urldispatcher import View
 from sqlalchemy import Table, Column,DateTime, Integer, String, Float, LargeBinary, join
 from sqlalchemy import exists, select, update, delete, MetaData, ForeignKey, engine, create_engine,Unicode
@@ -37,35 +37,36 @@ async def setup_pg(app) -> PG:
 async def pg_add_user(view: View, user: dict) ->dict:
     logging.info('BEGIN: Add user '+user['username'])
     try:
-        query_insert = user_table.insert().values(**user)
+        query_insert = user_table.insert().values(**user).returning(user_table.c.user_id)
         async with view.pg.transaction() as conn:
-            await conn.execute(query_insert) 
-        logging.info('FINISH: Add user '+user['username'])
-        return {'status':True,'output':'User {} added'.format(user['username'])}
+            id= await conn.fetchval(query_insert) 
+        logging.info('FINISH: Add device {}'.format(id))
+        return id
     except UniqueViolationError:
-        return {'status':False,'output':'User {} already in base'.format(user['username'])}
+        raise web.HTTPForbidden('Username is already in base')
 
 async def pg_edit_user(view: View, user):
-    id=user['username']
-    logging.info('BEGIN: Edit user '+user['username'])
+    id=user['user_id']
+    logging.info('BEGIN: Edit user {}'.format(user['username']))
     query = user_table.update().values(
-        **user).where( user_table.c.username == id)
+        **user).where( user_table.c.user_id == id)
     async with view.pg.transaction() as conn:
         await conn.execute(query) 
-    logging.info('FINISH: Edit user '+user['username'])
-    return {'status':True,'output':'User successfully edited'}
+    logging.info('FINISH: Edit user {}'.format(user['username']))
+    return True
 
-async def pg_delete_user(view: View, username):
-    logging.info('BEGIN: Delete user '+username)
-    query = user_table.delete().where( user_table.c.username == username)
-    query_select = select([user_table]).where(user_table.c.username == username)
+async def pg_delete_user(view: View, user_id):
+    logging.info('BEGIN: Delete user {}'.format(user_id))
+    query = user_table.delete().where( user_table.c.user_id == user_id)
+    query_select = select([user_table]).where(user_table.c.user_id == user_id)
     if await view.pg.fetchval(query_select):
         await view.pg.execute(query)
-        logging.info('FINISH: Delete user '+username)
-        return {'status':True,'output':'User deleted'}
-    else: return {'status':False,'output':'No such user in database'}
+        logging.info('FINISH: Delete user {}'.format(user_id))
+        return True
+    else: return False
 
 async def pg_check_user(view:View,user)->dict:
+
     query = select([
             exists().where(and_(user_table.c.username == user['username'], 
             user_table.c.password == user['password']))
@@ -82,20 +83,28 @@ async def pg_check_user(view:View,user)->dict:
         return {'status':True,'output':output[0]}
 
 async def pg_select_user_by_id(pg,user_id):
+    logging.info('BEGIN: Select user by ID {}'.format(user_id))
     query = select([
             exists().where(user_table.c.user_id == user_id)
         ])
     query2= select([user_table]).where(user_table.c.user_id == user_id)
-    if not await pg.fetchval(query): output={'status':False}
+    if not await pg.fetchval(query): raise web.HTTPUnauthorized('No such user')
     else: 
-        output=await pg.fetchrow(query2)
-        return {'username': output['username'],
-                'password': output['password'],
-                'role': output['role'],
-                'firstname':output['firstname'],
-                'lastname':output['lastname'],
-                'email':output['email']
+        record=await pg.fetchrow(query2)
+        output = {'user_id': record['user_id'],
+                'username': record['username'],
+                'password': record['password'],
+                'role': record['role'],
+                'firstname':record['firstname'],
+                'lastname':record['lastname'],
+                'email':record['email'],
+                'search':record['search'],
+                'columns':record['columns']
                 }
+        if output['search']: output['search']=json.loads(output['search'])
+        if output['columns']: output['columns']=json.loads(output['columns'])
+        return output
+
 
 async def pg_select_users(view:View)->dict:
     query= select([user_table])
@@ -107,30 +116,25 @@ async def pg_select_users(view:View)->dict:
         'firstname':record[4],
         'lastname':record[5],
         'email':record[6]} for record in records]
-    return {'status':True,'output':output}
+    return output
 
 
-async def pg_add_model(view: View, model: dict) ->dict:
-    logging.info('BEGIN: Add model '+model['model'])
-    try:
-        query_insert = model_table.insert().values(**model)
-        async with view.pg.transaction() as conn:
-            await conn.execute(query_insert) 
-        logging.info('FINISH: Add model '+model['model'])
-        return {'status':True,'output':'Model {} added'.format(model['model'])}
-    except UniqueViolationError:
-        return {'status':False,'output':'Model {} already in base'.format(model['model'])}
+async def pg_add_model(view: View, model_dict: dict) ->dict:
+    logging.info('BEGIN: Add model '+model_dict['model'])
+    query_insert = model_table.insert().values(**model_dict).returning(model_table.c.model)
+    async with view.pg.transaction() as conn:
+        model = await conn.execute(query_insert) 
+    logging.info('FINISH: Add model '+model)
+    return model
 
 async def pg_edit_model(view: View, model):
     id=model['model_id']
     logging.info('BEGIN: Edit model {}'.format(id)) 
-    query = model_table.update().values(
-        **model
-        ).where( model_table.c.model_id == id)
+    query = model_table.update().values(**model).where( model_table.c.model_id == id)
     async with view.pg.transaction() as conn:
         await conn.execute(query) 
     logging.info('FINISH: Edit model {}'.format(id))
-    return {'status':True,'output':'Model successfully edited'}
+    return True
 
 async def pg_delete_model(view: View, model):
     logging.info('BEGIN: Delete model ()'.format(model))
@@ -139,8 +143,7 @@ async def pg_delete_model(view: View, model):
     if await view.pg.fetchval(query_select):
         await view.pg.execute(query)
         logging.info('FINISH: Delete model {}'.format(model))
-        return {'status':True,'output':'model deleted'}
-    else: return {'status':False,'output':'No such model in database'}
+        return model
 
 async def pg_check_model(view:View,model)->dict:
     query = select([exists().where(model_table.c.model == model)])
@@ -149,7 +152,12 @@ async def pg_check_model(view:View,model)->dict:
     if not diag: 
         return {'status':False}
     else: 
-        output=await view.pg.fetchrow(query2)
+        record=await view.pg.fetchrow(query2)
+        output={
+        'model_id':record[0],
+        'model':record[1],
+        'rec_ios':record[2],
+        'power':record[3]}
         return {'status':True,'output':output}
 
 async def pg_select_models(view:View)->dict:
@@ -163,17 +171,15 @@ async def pg_select_models(view:View)->dict:
     return {'status':True,'output':output}
 
 
-async def pg_add_device(view: View, device: dict) ->dict:
+async def pg_add_device(view: View, device: dict) ->int:
     if device['hostname']=='none': device['hostname'] = device['ip']
-    logging.info('BEGIN: Add device '+device['hostname'])
-    try:
-        query_insert = base_table.insert().values(**device)
-        async with view.pg.transaction() as conn:
-            await conn.execute(query_insert) 
-        logging.info('FINISH: Add device '+device['hostname'])
-        return {'status':True,'output':'Device {} added'.format(device['hostname'])}
-    except:
-        return {'status':False,'output':'Device {} already in base'.format(device['hostname'])}
+    logging.info('BEGIN: Add device {}'.format(device['hostname']))
+    query_insert = base_table.insert().values(**device).returning(base_table.c.dev_id)
+    async with view.pg.transaction() as conn:
+        id= await conn.fetchval(query_insert) 
+    logging.info('FINISH: Add device {}'.format(id))
+    return id
+
 
 async def pg_edit_device(view: View, device):
     id=device['dev_id']
@@ -184,7 +190,7 @@ async def pg_edit_device(view: View, device):
     async with view.pg.transaction() as conn:
         await conn.execute(query) 
     logging.info('FINISH: Edit device {}'.format(id))
-    return {'status':True,'output':'Device successfully edited'}
+    return True
 
 async def pg_delete_device(view: View, device):
     logging.info('BEGIN: Delete device {}'.format(device))
@@ -196,15 +202,39 @@ async def pg_delete_device(view: View, device):
         return {'status':True,'output':'device deleted'}
     else: return {'status':False,'output':'No such device in database'}
 
-async def pg_check_device(view:View,device)->dict:
-    query = select([exists().where(base_table.c.device == device)])
-    query2= select([base_table]).where(base_table.c.device == device)
+async def pg_check_device(view:View,param,value)->dict:
+    logging.info('BEGIN: Check device param {}, value {}'.format(param,value))
+    query = select([exists().where(eval('base_table.c.'+param) == value)])
+    query2= select([base_table.join(model_table, base_table.c.model_id == model_table.c.model_id)]).where(eval('base_table.c.'+param) == value)
     diag=await view.pg.fetchval(query)
+    logging.info(diag)
     if not diag: 
         return {'status':False}
     else: 
-        output=await view.pg.fetchrow(query2)
-        return {'status':True,'output':output}
+        records=await view.pg.fetch(query2)
+        output=[
+            {
+                'dev_id':record[0],
+                'hostname':record[1],
+                'serial_n':record[2],
+                'dev_ios':record[3],
+                'inv_n':record[4],
+                'nom_n':record[5],
+                'description':record[6],
+                'ip':record[7],
+                'power_type':record[8],
+                'protocol':record[9],
+                'switch_type':record[10],
+                'place':record[11],
+                'building':record[12],
+                'room':record[13],
+                'model':record[18],
+                'rec_ios':record[19],
+                'power':record[20],
+                'project':record[15],
+                'in_date':record[16].strftime('%d.%m.%Y')
+                } for record in records]
+        return {'status':True,'output':output[0]}
 
 async def pg_select_devices(view:View)->dict:
     query= select([base_table.join(model_table, base_table.c.model_id == model_table.c.model_id)])
