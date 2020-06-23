@@ -22,6 +22,8 @@ def upgrade():
     op.create_unique_constraint(op.f('uq__device_models__model_id'), 'device_models', ['model_id'])
     op.add_column('device_user', sa.Column('columns', sa.String(), nullable=True))
     op.add_column('device_user', sa.Column('search', sa.String(), nullable=True))
+    op.execute("UPDATE device_user SET search='[]' where username='admin';")
+    op.execute("UPDATE device_user SET columns='[]' where username='admin';")
     # ### end Alembic commands ###
 
 

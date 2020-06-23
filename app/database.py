@@ -36,6 +36,14 @@ async def setup_pg(app) -> PG:
 
 async def pg_add_user(view: View, user: dict) ->dict:
     logging.info('BEGIN: Add user '+user['username'])
+    user['columns']=json.dumps(
+        ["index", "ip", "hostname", "serial_n", "model", 
+        "dev_ios", "power", "switch_type", "place", "selected"])
+    user['search']=json.dumps(
+        ["ip", "hostname", "serial_n", "model", "protocol", "dev_ios", 
+        "description", "project", "in_date", "power", "power_type", 
+        "switch_type", "place", "building", "room"]
+    )
     try:
         query_insert = user_table.insert().values(**user).returning(user_table.c.user_id)
         async with view.pg.transaction() as conn:
